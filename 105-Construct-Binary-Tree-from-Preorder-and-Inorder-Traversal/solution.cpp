@@ -11,32 +11,15 @@ class Solution {
 public:
     TreeNode* buildTree(vector<int>& preorder, vector<int>& inorder) {
         if(preorder.empty() || inorder.empty()) return NULL;
-        int length = preorder.size();
-/*        vector<int> leftPre, leftIn, rightPre, rightIn;
-        TreeNode *node = new TreeNode(rootValue);
-        int i = 0;
-        while(inorder.at(i) != rootValue) {
-            leftIn.push_back(inorder.at(i++));
-            leftPre.push_back(preorder.at(i));
-        }
-        i++;
-        while(i<length) {
-            rightPre.push_back(preorder.at(i));
-            rightIn.push_back(inorder.at(i));
-            i++;
-        }
-        node->left = buildTree(leftPre, leftIn);
-        node->right = buildTree(rightPre, rightIn);*/
-        return buildSubTree(preorder, inorder, length, 0, 0);
+        return buildSubTree(preorder, inorder, preorder.size(), 0, 0);
     }
     
     TreeNode* buildSubTree(vector<int>& preorder, vector<int>& inorder, int length, int preStart, int inStart) {
         if(length==0) return NULL;
         if(length==1) return new TreeNode(preorder[preStart]);
-        int rootValue = preorder.at(preStart);
-        TreeNode *node = new TreeNode(rootValue);
+        TreeNode *node = new TreeNode(preorder[preStart]);
         int i = inStart;
-        while(inorder.at(i)!=rootValue){
+        while(inorder.at(i)!=preorder[preStart]){
             i++;
         }
         node->left = buildSubTree(preorder, inorder, i-inStart, preStart+1, inStart);
