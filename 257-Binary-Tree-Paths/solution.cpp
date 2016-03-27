@@ -25,8 +25,8 @@ private:
             return;
         } else {
             path += "->";
-            if(node->left) helper(retPaths, node->left, path);
-            if(node->right) helper(retPaths, node->right, path);
+            helper(retPaths, node->left, path);
+            helper(retPaths, node->right, path);
         }
     }
 };
