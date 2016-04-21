@@ -5,14 +5,14 @@ class Solution {
 public:
     int firstBadVersion(int n) {
         if(isBadVersion(1)) return 1;
-        long left = 1;
-        long right = n;
-        long mid = (left+right)/2;
+        int left = 1;
+        int right = n;
+        int mid = left + (right - left)/2; // is equivalent to (left+right)/2 logically, but more likely to avoid data overflow
         
         while(left < mid) {
             if(isBadVersion(mid)) right = mid;
             else left = mid;
-            mid = (left+right)/2;
+            mid = left + (right - left)/2;
         }
         return mid+1;
     }
