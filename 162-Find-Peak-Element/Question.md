@@ -14,7 +14,7 @@ For example, in array `[1, 2, 3, 1]`, 3 is a peak element and your function shou
 
 [click to show spoilers.](#)
 
-<div class="spoilers" style="display: block;">**Note:**
+<div class="spoilers" style="display: none;">**Note:**
 
 Your solution should be in logarithmic complexity.
 
