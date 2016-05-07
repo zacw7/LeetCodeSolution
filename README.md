@@ -1,1 +1,3 @@
 # LeetCodeSolution
+
+Live and Learn.
