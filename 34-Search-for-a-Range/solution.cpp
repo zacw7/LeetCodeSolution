@@ -9,15 +9,15 @@ public:
             results[0]=results[1]=0;
             return results;
         }
-        int mid=right;
+        int mid = right;
         while(left < right) {
             if(nums[mid]==target){
                 left = right = mid;
                 break;
             } else if(nums[mid] < target) {
-                left = mid;
+                left = mid+1;
             } else {
-                right = mid;
+                right = mid-1;
             }
             mid=left+(right-left)/2;
         }
