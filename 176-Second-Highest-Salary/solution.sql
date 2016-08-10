@@ -3,5 +3,5 @@ select *
 from
     (select *
      from Employee
-     order by salary)
+     order by salary) A
 where rownum = 2
