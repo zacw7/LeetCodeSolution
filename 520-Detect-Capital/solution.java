@@ -1,42 +1,19 @@
-/*
-// Definition for a Node.
-class Node {
-    public int val;
-    public Node prev;
-    public Node next;
-    public Node child;
-
-    public Node() {}
-
-    public Node(int _val,Node _prev,Node _next,Node _child) {
-        val = _val;
-        prev = _prev;
-        next = _next;
-        child = _child;
-    }
-};
-*/
 class Solution {
-    public Node flatten(Node head) {
-        Stack<Node> parents = new Stack();
-
-        Node node = head;
-        while (node != null) {
-            if (node.next == null && !parents.isEmpty()) {
-                Node parent = parents.pop();
-                node.next = parent.next;
-                if (node.next != null) node.next.prev = node;
-                parent.child.prev = parent;
-                parent.next = parent.child;
-                parent.child = null;
-            }
-            if (node.child != null) {
-                parents.push(node);
-                node = node.child;
-            } else {
-                node = node.next;
+    public boolean detectCapitalUse(String word) {
+        if (word.length() <= 1) return true;
+        boolean isUpper = false;
+        if (Character.isUpperCase(word.charAt(0))) {
+            isUpper = Character.isUpperCase(word.charAt(1));
+        } else {
+            if (Character.isUpperCase(word.charAt(1))) {
+                return false;
             }
         }
-        return head;
+        for (int i = 1; i < word.length(); i++) {
+            if (Character.isUpperCase(word.charAt(i)) != isUpper) {
+                return false;
+            }
+        }
+        return true;
     }
 }
