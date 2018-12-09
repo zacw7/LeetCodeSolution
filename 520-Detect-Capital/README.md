@@ -23,11 +23,5 @@ Output: True
 Input: "FlaG"
 Output: False
 ```
-##### Example 1:
-```
-Input: "USA"
-Output: True
-1-2-3-7-8-11-12-9-10-4-5-6-NULL
-```
 ##### Explanation for the above example:
 **Note:** The input will be a non-empty word consisting of uppercase and lowercase latin letters.
