@@ -15,7 +15,7 @@ Output: "hello"
 Input: "here"
 Output: "here"
 ```
-##### Example 2:
+##### Example 3:
 ```
 Input: "LOVELY"
 Output: "lovely"
