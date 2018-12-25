@@ -13,8 +13,8 @@ class Solution {
                 char tmp = chars[left];
                 chars[left] = chars[right];
                 chars[right] = tmp;
-                left++;
                 right--;
+                left++;
             }
         }
         return new String(chars);
