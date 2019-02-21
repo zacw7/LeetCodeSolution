@@ -10,16 +10,14 @@
 class Solution {
     public boolean isUnivalTree(TreeNode root) {
         int univalue = root.val;
-        TreeNode node = root.left;
         Stack<TreeNode> nodeStack = new Stack();
-        nodeStack.push(root);
-        while (!nodeStack.isEmpty() || node != null) {
-            if (node == null) {
-                node = nodeStack.pop().right;
+        while (!nodeStack.isEmpty() || root != null) {
+            if (root == null) {
+                root = nodeStack.pop().right;
             } else {
-                if (node.val != univalue) return false;
-                nodeStack.push(node);
-                node = node.left;
+                if (root.val != univalue) return false;
+                nodeStack.push(root);
+                root = root.left;
             }
         }
         return true;
