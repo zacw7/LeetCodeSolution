@@ -2,7 +2,7 @@
 
 **Easy**
 
-[Original Page](https://leetcode.com/problems/buddy-strings/)
+[Original Page](https://leetcode.com/problems/complement-of-base-10-integer/)
 
 Every non-negative integer `N` has a binary representation.  For example, `5` can be represented as `"101"` in binary, `11` as `"1011"` in binary, and so on.  Note that except for `N = 0`, there are no leading zeroes in any binary representation.
 
