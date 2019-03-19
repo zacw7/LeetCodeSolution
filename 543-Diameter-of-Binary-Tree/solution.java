@@ -8,18 +8,9 @@
  * }
  */
 class Solution {
+    int max = 1;
     public int diameterOfBinaryTree(TreeNode root) {
-        if (root == null) return 0;
-        else helper(root);
-        Queue<TreeNode> nodeQueue = new LinkedList();
-        nodeQueue.add(root);
-        int max = 0;
-        while (!nodeQueue.isEmpty()) {
-            TreeNode node = nodeQueue.poll();
-            if (node.val > max) max = node.val;
-            if (node.left != null) nodeQueue.add(node.left);
-            if (node.right != null) nodeQueue.add(node.right);
-        }
+        if (root != null) helper(root);
         return max - 1;
     }
 
@@ -27,7 +18,8 @@ class Solution {
         int leftLen = 0, rightLen = 0;
         if (node.left != null) leftLen = helper(node.left);
         if (node.right != null) rightLen = helper(node.right);
-        node.val = leftLen + rightLen + 1;
+        int cur = leftLen + rightLen + 1;
+        if (cur > max) max = cur;
         return Math.max(leftLen, rightLen) + 1;
     }
 }
