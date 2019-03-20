@@ -28,4 +28,5 @@ Given the above grid, return `6`. Note the answer is not 11, because the island 
 ```
 
 Given the above grid, return `0`.
+
 __Note:__ The length of each dimension in the given `grid` does not exceed 50.
