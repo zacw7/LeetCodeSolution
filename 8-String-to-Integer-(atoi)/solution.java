@@ -8,7 +8,6 @@ class Solution {
             if (str.charAt(0) == '-') sign = -1;
             i = 1;
         }
-        while (i < len && str.charAt(i) == '0') i++;
         while (i < len) {
             char ch = str.charAt(i);
             int digit = (ch - '0') * sign;
