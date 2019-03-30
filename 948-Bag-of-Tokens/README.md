@@ -31,7 +31,7 @@ Input: tokens = [100,200,300,400], P = 200
 Output: 2
 ```
 
-##### Note::
+##### Note:
 1. `tokens.length <= 1000`
 2. `0 <= tokens[i] < 10000`
 3. `0 <= P < 10000`
