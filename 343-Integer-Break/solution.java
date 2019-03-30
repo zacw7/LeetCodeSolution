@@ -1,13 +1,14 @@
 class Solution {
     public int integerBreak(int n) {
+        if (n <= 2) return 1;
+        if (n == 3) return 2;
         int[] dp = new int[n + 1];
-        dp[2] = dp[1] = 1;
-        for (int i = 3; i <= n; i++) {
-            int cur = 2 * Math.max(i - 2, dp[i - 2]);
-            for (int fac1 = 3, fac2 = i - fac1; fac1 <= fac2; fac1++, fac2--) {
-                cur = Math.max(cur, Math.max(fac1, dp[fac1]) * Math.max(fac2, dp[fac2]));
-            }
-            dp[i] = cur;
+        dp[2] = 2;
+        dp[3] = 3;
+        for (int i = 4; i <= n; i++) {
+            dp[i] = dp[2] * dp[i - 2];
+            for (int fac1 = 3, fac2 = i - fac1; fac1 <= fac2; fac1++, fac2--)
+                dp[i] = Math.max(dp[i], dp[fac1] * dp[fac2]);
         }
         return dp[n];
     }
