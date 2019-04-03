@@ -2,7 +2,7 @@
 
 **Medium**
 
-[Original Page](https://leetcode.com/problems/count-complete-tree-nodes//)
+[Original Page](https://leetcode.com/problems/count-complete-tree-nodes/)
 
 Given a __complete__ binary tree, count the number of nodes.
 
