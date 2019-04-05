@@ -18,9 +18,8 @@ class Solution {
 
     public int helper(TreeNode node) {
         if (node == null) return 0;
-        int leftCoins = 0, rightCoins = 0;
-        if (node.left != null) leftCoins = helper(node.left);
-        if (node.right != null) rightCoins = helper(node.right);
+        int leftCoins = helper(node.left);
+        int rightCoins = helper(node.right);
         moves += Math.abs(leftCoins) + Math.abs(rightCoins);
         return node.val + leftCoins + rightCoins - 1;
     }
