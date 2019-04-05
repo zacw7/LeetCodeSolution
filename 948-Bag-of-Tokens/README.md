@@ -19,7 +19,7 @@ Input: tokens = [100], P = 50
 Output: 0
 ```
 
-##### Example 2:
+##### Example 2: 
 ```
 Input: tokens = [100,200], P = 150
 Output: 1
