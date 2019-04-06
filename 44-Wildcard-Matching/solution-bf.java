@@ -16,6 +16,8 @@ class Solution {
         if (pattern[ip] == '?' || pattern[ip] == source[is]) {
             return helper(source, pattern, is + 1, ip + 1);
         } else if (pattern[ip] == '*') {
+            if (ip + 1 < pattern.length && pattern[ip + 1] == '*')
+                return helper(source, pattern, is, ip + 1);
             for (int i = is; i <= source.length; i++) {
                 if (helper(source, pattern, i, ip + 1)) return true;
             }
