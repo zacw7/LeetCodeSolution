@@ -5,15 +5,15 @@
 
 public class Solution extends GuessGame {
     public int guessNumber(int n) {
-        int left = 0, right = n;
-        int pick = left + (right - left) / 2;
-        int res = guess(pick);
+        if (guess(n) == 0) return n;
+        int lo = 1, hi = n, mid = lo + (hi - lo) / 2;
+        int res = guess(mid);
         while (res != 0) {
-            if (res < 0) right = pick;
-            else if (res > 0) left = pick;
-            pick = left + (right - left) / 2;
-            res = guess(pick);
+            if (res == -1) hi = mid;
+            else lo = mid;
+            mid = lo + (hi - lo) / 2;
+            res = guess(mid);
         }
-        return pick;
+        return mid;
     }
 }
