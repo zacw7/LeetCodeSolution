@@ -8,22 +8,18 @@
  * }
  */
 class Solution {
-    int ans = 0;
     public int pathSum(TreeNode root, int sum) {
-        if (root != null) startFrom(root, sum);
-        return ans;
+        if (root == null) return 0;
+        return startFrom(root, sum) + pathSum(root.left, sum) + pathSum(root.right, sum);
     }
 
-    private void startFrom(TreeNode root, int target) {
-        helper(root, target);
-        if (root.left != null) startFrom(root.left, target);
-        if (root.right != null) startFrom(root.right, target);
-    }
-
-    private void helper(TreeNode node, int target) {
-        if (node == null) return;
-        if (node.val == target) ans++;
-        if (node.left != null) helper(node.left, target - node.val);
-        if (node.right != null) helper(node.right, target - node.val);
+    private int startFrom(TreeNode root, int sum) {
+        if (root == null) return 0;
+        int paths = 0;
+        sum -= root.val;
+        if (sum == 0) paths = 1;
+        paths += startFrom(root.left, sum);
+        paths += startFrom(root.right, sum);
+        return paths;
     }
 }
