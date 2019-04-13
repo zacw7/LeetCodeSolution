@@ -10,8 +10,6 @@ One of the benefits of the circular queue is that we can make use of the spaces 
 
 Your implementation should support following operations:
 
-Your implementation should support following operations:
-
 - `MyCircularQueue(k)`: Constructor, set the size of the queue to be k.
 - `Front`: Get the front item from the queue. If the queue is empty, return -1.
 - `Rear`: Get the last item from the queue. If the queue is empty, return -1.
