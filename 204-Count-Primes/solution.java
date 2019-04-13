@@ -1,4 +1,6 @@
 class Solution {
+    // T: O(n)
+    // S: O(n)
     public int countPrimes(int n) {
         if (n <= 1) return 0;
         boolean[] seen = new boolean[n];
