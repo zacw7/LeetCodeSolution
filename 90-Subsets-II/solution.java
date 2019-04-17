@@ -1,24 +1,27 @@
 class Solution {
+    // T: (2^n)
+    // O: (n!)
     public List<List<Integer>> subsetsWithDup(int[] nums) {
-        List<List<Integer>> res = new ArrayList();
-        if (nums.length == 0) return res;
-        Arrays.sort(nums);
-        Set<Integer> seen = new HashSet();
-        List<List<Integer>> cur = new ArrayList();
-        cur.add(new ArrayList());
-        res.addAll(cur);
-        for (int i = 0; i < nums.length; i++) {
-            List<List<Integer>> tmp = res;
-            if (seen.contains(nums[i])) tmp = cur;
-            cur = new ArrayList();
-            for (List<Integer> comb : tmp) {
-                List<Integer> subset = new ArrayList(comb);
-                subset.add(nums[i]);
-                cur.add(subset);
-            }
-            seen.add(nums[i]);
-            res.addAll(cur);
+        List<List<Integer>> ans = new ArrayList();
+        if (nums == null) {
+            return ans;
         }
-        return res;
+        Arrays.sort(nums);
+        subsetHelper(nums, 0, new ArrayList(), ans);
+        return ans;
+    }
+
+    private void subsetHelper(int[] nums, int index, List<Integer> list, List<List<Integer>> ans) {
+        if (index == nums.length) {
+            ans.add(list);
+            return;
+        }
+
+        if (list.size() == 0 || nums[index] != list.get(list.size() - 1)) {
+            subsetHelper(nums, index + 1, new ArrayList(list), ans);
+        }
+
+        list.add(nums[index]);
+        subsetHelper(nums, index + 1, list, ans);
     }
 }
