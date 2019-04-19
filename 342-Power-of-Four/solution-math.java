@@ -3,11 +3,7 @@ class Solution {
         if (num <= 0) {
             return false;
         }
-
-        while (num % 4 == 0) {
-            num /= 4;
-        }
-
-        return num == 1;
+        // 0x0101 -> 5, 0x55555555
+        return (0x55555555 & num) > 0 && ((num - 1) & num) == 0;
     }
 }
