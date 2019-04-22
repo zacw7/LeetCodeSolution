@@ -1,24 +1,48 @@
 class Solution {
+    // one-pass
+    // T: O(n)
+    // S: O(1)
     public boolean isOneEditDistance(String s, String t) {
         if (s == null || t == null || Math.abs(s.length() - t.length()) > 1) {
             return false;
         }
-        int[][] dp = new int[s.length() + 1][t.length() + 1];
-        for (int i = 1; i <= s.length(); i++) {
-            dp[i][0] = i;
-        }
-        for (int j = 1; j <= t.length(); j++) {
-            dp[0][j] = j;
-        }
-        for (int i = 1; i <= s.length(); i++) {
-            for (int j = 1; j <= t.length(); j++) {
-                if (s.charAt(i - 1) == t.charAt(j - 1)) {
-                    dp[i][j] = Math.min(dp[i - 1][j - 1], Math.min(dp[i - 1][j], dp[i][j - 1]) + 1);
-                } else {
-                    dp[i][j] = Math.min(dp[i - 1][j - 1] + 1, Math.min(dp[i - 1][j], dp[i][j - 1]) + 1);
+        if (s.length() == t.length()) {
+            // if s.length() == t.length(), then one edit distance must be replace
+            boolean placed = false;
+            for (int i = 0; i < s.length(); i++) {
+                if (s.charAt(i) != t.charAt(i)) {
+                    if (placed) {
+                        return false;
+                    } else {
+                        placed = true;
+                    }
                 }
             }
+            return placed;
+        } else {
+            // if s.length() > t.length(), then one edit distance must be delete a character from s to get t
+            // and vice versa
+            // make s be the longer one
+            if (s.length() < t.length()) {
+                String tmp = s;
+                s = t;
+                t = tmp;
+            }
+            int p1 = 0, p2 = 0;
+            boolean inserted = false;
+            while (p1 < s.length()) {
+                if (p2 < t.length() && s.charAt(p1) == t.charAt(p2)) {
+                    p1++;
+                    p2++;
+                } else {
+                    if (inserted) {
+                        return false;
+                    }
+                    inserted = true;
+                    p1++;
+                }
+            }
+            return inserted;
         }
-        return dp[s.length()][t.length()] == 1;
     }
 }
