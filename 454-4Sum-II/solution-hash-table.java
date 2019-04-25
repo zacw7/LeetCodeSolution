@@ -9,17 +9,13 @@ class Solution {
         Map<Integer, Integer> targetMap = new HashMap();
         for (int a : A) {
             for (int b : B) {
-                int sum = a + b;
-                targetMap.put(-sum, targetMap.getOrDefault(-sum, 0) + 1);
+                targetMap.put(a + b, targetMap.getOrDefault(a + b, 0) + 1);
             }
         }
         int count = 0;
-        for (int c = 0; c < C.length; c++) {
-            for (int d = 0; d < D.length; d++) {
-                int sum = C[c] + D[d];
-                if (targetMap.containsKey(sum)) {
-                    count += targetMap.get(sum);
-                }
+        for (int c : C) {
+            for (int d : D) {
+                count += targetMap.getOrDefault(- c - d, 0);
             }
         }
         return count;
