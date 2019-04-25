@@ -1,8 +1,8 @@
 # 159. Longest Substring with At Most Two Distinct Characters
 
-**Medium**
+**Hard**
 
-[Original Page](https://leetcode.com/problems/bag-of-tokens/)
+[Original Page](https://leetcode.com/problems/longest-substring-with-at-most-two-distinct-characters/)
 
 Given a string ___s___ , find the length of the longest substring ___t___ that contains __at most__ 2 distinct characters.
 
