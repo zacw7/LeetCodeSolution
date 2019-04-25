@@ -63,7 +63,7 @@ sol.read(buf, 4); // After calling your read method, buf should contain "abc". W
 sol.read(buf, 1); // We have reached the end of file, no more characters can be read. So return 0.
 ```
 
-##### Example 1:
+##### Note:
 1. Consider that you __cannot__ manipulate the file directly, the file is only accesible for `read4` but __not__ for `read`.
 2. The `read` function may be called __multiple times__.
 3. Please remember to __RESET__ your class variables declared in Solution, as static/class variables are __persisted across multiple test cases__. Please see here for more details.
