@@ -1,6 +1,6 @@
 class Solution {
     // dp
-    // T: O(mn)
+    // T: O(n^2*m)
     // S: O(mn)
     public int splitArray(int[] nums, int m) {
         long[] prefixSums = new long[nums.length + 1];
