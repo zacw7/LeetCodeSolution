@@ -6,7 +6,6 @@ class Solution {
             int n1 = dsu.find(edge[0]);
             int n2 = dsu.find(edge[1]);
             if (n1 == n2) {
-                // loop found
                 return false;
             }
             dsu.union(edge[0], edge[1]);
@@ -23,11 +22,11 @@ class Solution {
     }
 
     class DSU {
-        int[] parent;
+        private int[] parents;
         DSU(int n) {
-            this.parent = new int[n];
+            this.parents = new int[n];
             for (int i = 0; i < n; i++) {
-                parent[i] = i;
+                parents[i] = i;
             }
         }
 
@@ -35,15 +34,21 @@ class Solution {
             int p_x = find(x);
             int p_y = find(y);
             if (p_x != p_y) {
-                parent[p_x] = p_y;
+                parents[p_x] = p_y;
             }
         }
 
         int find(int x) {
-            while (x != parent[x]) {
-                x = parent[x];
+            int p = parents[x];
+            while (p != parents[p]) {
+                p = parents[p];
             }
-            return x;
+            while (x != parents[x]) {
+                int tmp = parents[x];
+                parents[x] = p;
+                x = tmp;
+            }
+            return p;
         }
     }
 }
