@@ -23,5 +23,5 @@ Output: 2
 Explanation: The subarray [-1, 2] sums to 1 and is the longest.
 ```
 
-##### Note:
+##### Follow up:
 Can you do it in O(_n_) time?
