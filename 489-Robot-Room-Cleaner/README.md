@@ -1,6 +1,6 @@
 # 489. Robot Room Cleaner
 
-**Medium**
+**Hard**
 
 [Original Page](https://leetcode.com/problems/robot-room-cleaner/)
 
