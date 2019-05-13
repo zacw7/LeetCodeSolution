@@ -32,8 +32,8 @@ Output: [[1, 2, 3, 4], [5, 6, 7], [8, 9, 10]]
 Explanation:
 The input has been split into consecutive parts with size difference at most 1, and earlier parts are a larger size than the later parts.
 ```
+
 ##### Note:
- 
-* The length of root will be in the range `[0, 1000]`.
-* Each value of a node in the input will be an integer in the range `[0, 999]`.
-* `k` will be an integer in the range `[1, 50]`.
+- The length of root will be in the range `[0, 1000]`.
+- Each value of a node in the input will be an integer in the range `[0, 999]`.
+- `k` will be an integer in the range `[1, 50]`.
