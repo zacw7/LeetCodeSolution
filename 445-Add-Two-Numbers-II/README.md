@@ -10,6 +10,7 @@ You are given two **non-empty** linked lists representing two non-negative integ
 What if you cannot modify the input lists? In other words, reversing the lists is not allowed.
 
 **Example:**
-
-`Input: (7 -> 2 -> 4 -> 3) + (5 -> 6 -> 4)
-Output: 7 -> 8 -> 0 -> 7`
+```
+Input: (7 -> 2 -> 4 -> 3) + (5 -> 6 -> 4)
+Output: 7 -> 8 -> 0 -> 7
+```

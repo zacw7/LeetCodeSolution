@@ -8,45 +8,32 @@
  */
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        Stack<Integer> stackOfList1 = new Stack();
-        Stack<Integer> stackOfList2 = new Stack();
-
+        ListNode dummy = new ListNode(0);
+        Stack<ListNode> stack1 = new Stack();
+        Stack<ListNode> stack2 = new Stack();
         while (l1 != null) {
-            stackOfList1.push(l1.val);
+            stack1.push(l1);
             l1 = l1.next;
         }
         while (l2 != null) {
-            stackOfList2.push(l2.val);
+            stack2.push(l2);
             l2 = l2.next;
         }
-
-        int carryBit = 0;
-        ListNode node = null, head = null;
-        while (!stackOfList1.isEmpty() && !stackOfList2.isEmpty()) {
-            int addend1 = stackOfList1.pop(), addend2 = stackOfList2.pop();
-            head = new ListNode((addend1 + addend2 + carryBit) % 10);
-            if (node != null) head.next = node;
-            node = head;
-            carryBit = (addend1 + addend2 + carryBit) / 10;
+        int carry = 0;
+        while (!stack1.isEmpty() || !stack2.isEmpty() || carry > 0) {
+            int n1 = 0, n2 = 0;
+            if (!stack1.isEmpty()) {
+                n1 = stack1.pop().val;
+            }
+            if (!stack2.isEmpty()) {
+                n2 = stack2.pop().val;
+            }
+            int sum = n1 + n2 + carry;
+            carry = sum / 10;
+            ListNode node = new ListNode(sum % 10);
+            node.next = dummy.next;
+            dummy.next = node;
         }
-        while (!stackOfList1.isEmpty()) {
-            int addend = stackOfList1.pop();
-            head = new ListNode((addend + carryBit) % 10);
-            if (node != null) head.next = node;
-            node = head;
-            carryBit = (addend + carryBit) / 10;
-        }
-        while (!stackOfList2.isEmpty()) {
-            int addend = stackOfList2.pop();
-            head = new ListNode((addend + carryBit) % 10);
-            if (node != null) head.next = node;
-            node = head;
-            carryBit = (addend + carryBit) / 10;
-        }
-        if (carryBit > 0) {
-            head = new ListNode(1);
-            head.next = node;
-        }
-        return head;
+        return dummy.next;
     }
 }
