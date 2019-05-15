@@ -1,20 +1,21 @@
 class Solution {
     public String reverseWords(String s) {
-        Stack<Character> charStack = new Stack();
-        StringBuilder sb = new StringBuilder();
-        for (char ch : s.toCharArray()) {
-            if (ch == ' ') {
-                while (!charStack.isEmpty()) {
-                    sb.append(charStack.pop());
-                }
-                sb.append(ch);
-            } else {
-                charStack.push(ch);
-            }
+        String[] words = s.split(" ");
+        for (int i = 0; i < words.length; i++) {
+            words[i] = reverse(words[i].toCharArray());
         }
-        while (!charStack.isEmpty()) {
-            sb.append(charStack.pop());
+        return String.join(" ", words);
+    }
+
+    private String reverse(char[] word) {
+        int l = 0, r = word.length - 1;
+        while (l < r) {
+            char tmp = word[l];
+            word[l] = word[r];
+            word[r] = tmp;
+            l++;
+            r--;
         }
-        return sb.toString();
+        return new String(word);
     }
 }
