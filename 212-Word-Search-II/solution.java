@@ -1,74 +1,68 @@
 class Solution {
-
     // T: O(n+m)
     // S: O(n)
-
-    private int R, C;
-
+    int R, C;
+    int[][] directions = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
     public List<String> findWords(char[][] board, String[] words) {
         Set<String> found = new HashSet();
-        if (words == null || words.length == 0 || board == null || board.length == 0 || board[0].length == 0) {
-            return new ArrayList(found);
-        }
-
-        // init Trie
-        Trie trie = new Trie();
+        TrieNode trie = new TrieNode();
+        // construct trie
         for (String w : words) {
-            Trie node = trie;
+            TrieNode node = trie;
             for (char c : w.toCharArray()) {
                 if (node.children[c - 'a'] == null) {
-                    node.children[c - 'a'] = new Trie();
+                    node.children[c - 'a'] = new TrieNode();
                 }
                 node = node.children[c - 'a'];
             }
-            node.data = w;
             node.isEnd = true;
+            node.word = w;
         }
-
-        // search
+        // search word in board
+        if (board == null || board.length == 0 || board[0] == null || board[0].length == 0) {
+            return new ArrayList(found);
+        }
         R = board.length;
         C = board[0].length;
         boolean[][] visited = new boolean[R][C];
         for (int r = 0; r < R; r++) {
             for (int c = 0; c < C; c++) {
-                if (trie.children[board[r][c] - 'a'] != null) {
-                    List<String> wordList = new ArrayList();
-                    searchHelper(board, r, c, trie.children[board[r][c] - 'a'], visited, wordList);
-                    found.addAll(wordList);
-                }
+                search(board, trie, r, c, visited, found);
             }
         }
         return new ArrayList(found);
     }
 
-    private void searchHelper(char[][] board, int r, int c, Trie trie, boolean[][] visited, List<String> wordList) {
-        if (trie.isEnd) {
-            wordList.add(trie.data);
+    private void search(char[][] board, TrieNode node, int r0, int c0,
+                        boolean[][] visited, Set<String> found) {
+        char ch = board[r0][c0];
+        if (node.children[ch - 'a'] == null) {
+            return;
+        } else {
+            node = node.children[ch - 'a'];
         }
-        visited[r][c] = true;
-        if (r > 0 && !visited[r - 1][c] && trie.children[board[r - 1][c] - 'a'] != null) {
-            searchHelper(board, r - 1, c, trie.children[board[r - 1][c] - 'a'], visited, wordList);
+        if (node.isEnd) {
+            found.add(node.word);
         }
-        if (r < R - 1 && !visited[r + 1][c] && trie.children[board[r + 1][c] - 'a'] != null) {
-            searchHelper(board, r + 1, c, trie.children[board[r + 1][c] - 'a'], visited, wordList);
+        visited[r0][c0] = true;
+        for (int[] d : directions) {
+            int r = r0 + d[0], c = c0 + d[1];
+            if (r >= 0 && r < R && c >= 0 && c < C && !visited[r][c]) {
+                search(board, node, r, c, visited, found);
+            }
         }
-        if (c > 0 && !visited[r][c - 1] && trie.children[board[r][c - 1] - 'a'] != null) {
-            searchHelper(board, r, c - 1, trie.children[board[r][c - 1] - 'a'], visited, wordList);
-        }
-        if (c < C - 1 && !visited[r][c + 1] && trie.children[board[r][c + 1] - 'a'] != null) {
-            searchHelper(board, r, c + 1, trie.children[board[r][c + 1] - 'a'], visited, wordList);
-        }
-        visited[r][c] = false;
+        visited[r0][c0] = false;
     }
 
-    class Trie {
+    class TrieNode {
+        String word;
         boolean isEnd;
-        String data;
-        Trie[] children;
+        TrieNode[] children;
 
-        Trie() {
+        TrieNode() {
+            this.word = null;
             this.isEnd = false;
-            this.children = new Trie[26];
+            this.children = new TrieNode[26];
         }
     }
 }
