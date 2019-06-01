@@ -2,7 +2,7 @@
 
 **Medium**
 
-[Original Page](https://leetcode.com/problems/campus-bikes-i/)
+[Original Page](https://leetcode.com/problems/campus-bikes-ii/)
 
 On a campus represented as a 2D grid, there are `N` workers and `M` bikes, with `N <= M`. Each worker and bike is a 2D coordinate on this grid.
 
