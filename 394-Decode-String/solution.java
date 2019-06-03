@@ -1,27 +1,33 @@
 class Solution {
     public String decodeString(String s) {
-        return dfs(s, 0, 1);
-    }
-
-    private String dfs(String s, int index, int num) {
-        StringBuilder sb = new StringBuilder();
-        int brackets = 0;
-        for (int i = index; i < s.length(); i++) {
-            char ch = s.charAt(i);
-            if (ch >= '0' && ch <= '9' && brackets == 0) {
-                // look for '['
-                int tmp = i;
-                while (s.charAt(i) != '[') i++;
-                int n = Integer.valueOf(s.substring(tmp, i));
-                sb.append(dfs(s, i + 1, n));
-                brackets++;
-            } else if (ch == '[') brackets++;
-            else if (ch == ']') brackets--;
-            else if (brackets == 0) sb.append(ch);
-            else if (brackets < 0) break;
+        if (s == null || s.length() == 0) {
+            return s;
         }
-        StringBuilder res = new StringBuilder();
-        while (num-- > 0) res.append(sb);
-        return res.toString();
+        int time = 0;
+        StringBuilder sb = new StringBuilder();
+        Stack<Integer> timeStack = new Stack();
+        Stack<StringBuilder> strStack = new Stack();
+        strStack.push(sb);
+        for (char c : s.toCharArray()) {
+            if (Character.isDigit(c)) {
+                time *= 10;
+                time += c - '0';
+            } else if (c == '[') {
+                timeStack.push(time);
+                strStack.push(sb);
+                sb = new StringBuilder();
+                time = 0;
+            } else if (c == ']') {
+                int t = timeStack.pop();
+                StringBuilder pre = strStack.pop();
+                while (t-- > 0) {
+                    pre.append(sb);
+                }
+                sb = pre;
+            } else {
+                sb.append(c);
+            }
+        }
+        return strStack.pop().toString();
     }
 }
