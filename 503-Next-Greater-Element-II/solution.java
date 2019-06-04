@@ -1,29 +1,24 @@
 class Solution {
+    // monotonous stack
+    // TC: O(N)
+    // SC: O(N)
     public int[] nextGreaterElements(int[] nums) {
-        int[] ans = new int[nums.length];
-        Arrays.fill(ans, -1);
-        Stack<Integer> monoDescStack = new Stack();
-        for (int i = nums.length - 1; i >= 0; i--) {
-            while (!monoDescStack.isEmpty() && nums[i] >= monoDescStack.peek()) {
-                monoDescStack.pop();
-            }
-            if (monoDescStack.isEmpty()) {
-                ans[i] = -1;
-            } else {
-                ans[i] = monoDescStack.peek();
-            }
-            monoDescStack.push(nums[i]);
+        if (nums == null || nums.length == 0) {
+            return nums;
         }
-        for (int i = nums.length - 1; i >= 0; i--) {
-            while (!monoDescStack.isEmpty() && nums[i] >= monoDescStack.peek()) {
-                monoDescStack.pop();
+        int[] ans = new int[nums.length];
+        // when you need to find the first greater element: use monotonous decreasing stack
+        Stack<Integer> stack = new Stack();
+        for (int i = 2 * nums.length - 1; i >= 0; i--) {
+            while (!stack.isEmpty() && stack.peek() <= nums[i % nums.length]) {
+                stack.pop();
             }
-            if (monoDescStack.isEmpty()) {
-                ans[i] = -1;
+            if (stack.isEmpty()) {
+                ans[i % nums.length] = -1;
             } else {
-                ans[i] = monoDescStack.peek();
+                ans[i % nums.length] = stack.peek();
             }
-            monoDescStack.push(nums[i]);
+            stack.push(nums[i % nums.length]);
         }
         return ans;
     }
