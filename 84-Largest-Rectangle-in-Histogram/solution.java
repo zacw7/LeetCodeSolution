@@ -1,42 +1,60 @@
 class Solution {
-    // T: O(n) - three passes
-    // S: O(n) - the worst case: n = heights.length;
+    // Intuition: the largest rectangle which consecutive bars can build depends on the shortest one among them.
+    //
+    // For each bar i in heights, we find the largest rectangle (let's say: rec[i]) it can build (of which height is heights[i]).
+    // Then the largest one of these rectangles is our answer: max{rec[i]}, 0 <= i < heights.length
+    //
+    // How to calculate rec[i]?
+    // The bars in rec[i] cannot be shorter than the i-th bar (if so, the height of rec[i] won't be heights[i])
+    // -> We find the first shorter bar in the left(j) and the first shorter bar in the right(k)
+    // -> In other words, all the bars between j and k are eaqul or higher than i
+    // -> Then we get the area: rec[i] = heights[i] * (j - k - 1)
+    //
+    // How to find the first shorter bar in the left/right?
+    // -> To find the first less/greater element: a monotonous stack can help.
+    //
+    // To summarize, 3 steps:
+    // For each bar in histogram:
+    // 1: find the first shorter bar in its left
+    // 2: find the first shorter bar in its right
+    // 3: find the largest rectangle it can build
+    // Among these rectangles, choose the largest one.
+    //
+    // T: O(n)
+    // S: O(n)
     public int largestRectangleArea(int[] heights) {
         if (heights == null || heights.length == 0) {
             return 0;
         }
-
+        Stack<Integer> stack = new Stack();
         int[] left = new int[heights.length], right = new int[heights.length];
-        Stack<Integer> monoIncrStack = new Stack();
         for (int i = 0; i < heights.length; i++) {
-            while (!monoIncrStack.isEmpty() && heights[i] <= heights[monoIncrStack.peek()]) {
-                monoIncrStack.pop();
+            while (!stack.isEmpty() && heights[stack.peek()] >= heights[i]) {
+                stack.pop();
             }
-            if (monoIncrStack.isEmpty()) {
+            if (stack.isEmpty()) {
                 left[i] = -1;
             } else {
-                left[i] = monoIncrStack.peek();
+                left[i] = stack.peek();
             }
-            monoIncrStack.push(i);
+            stack.push(i);
         }
-        monoIncrStack.clear();
+        stack.clear();
         for (int i = heights.length - 1; i >= 0; i--) {
-            while (!monoIncrStack.isEmpty() && heights[i] <= heights[monoIncrStack.peek()]) {
-                monoIncrStack.pop();
+            while (!stack.isEmpty() && heights[stack.peek()] >= heights[i]) {
+                stack.pop();
             }
-            if (monoIncrStack.isEmpty()) {
+            if (stack.isEmpty()) {
                 right[i] = heights.length;
             } else {
-                right[i] = monoIncrStack.peek();
+                right[i] = stack.peek();
             }
-            monoIncrStack.push(i);
+            stack.push(i);
         }
-
-        int max = 0;
+        int maxArea = 0;
         for (int i = 0; i < heights.length; i++) {
-            max = Math.max(max, heights[i] * (right[i] - left[i] - 1));
+            maxArea = Math.max(maxArea, heights[i] * (right[i] - left[i] - 1));
         }
-
-        return max;
+        return maxArea;
     }
 }
