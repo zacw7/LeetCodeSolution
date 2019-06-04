@@ -1,53 +1,37 @@
 class Solution {
 
-    private int[] wIdx;
     private Random rand;
-    private int fullWeight;
+    private int[] weights;
+    private int i = 0;
 
     public Solution(int[] w) {
-        if (w == null || w.length == 0) {
-            return;
-        }
-        this.wIdx = new int[w.length];
         this.rand = new Random();
+        this.weights = new int[w.length];
 
-        wIdx[0] = w[0];
+        weights[0] = w[0];
         for (int i = 1; i < w.length; i++) {
-            wIdx[i] = wIdx[i - 1] + w[i];
+            weights[i] = weights[i - 1] + w[i];
         }
-        this.fullWeight = wIdx[wIdx.length - 1];
     }
 
     public int pickIndex() {
-        if (wIdx.length == 1) {
-            return 0;
-        }
-        int n = rand.nextInt(fullWeight);
-        int lo = 0, hi = wIdx.length - 1;
-        while (lo < hi - 1) {
+        int w = rand.nextInt(weights[weights.length - 1]);
+        int lo = 0, hi = weights.length - 1;
+        while (lo + 1 < hi) {
             int mid = lo + (hi - lo) / 2;
-            if (n > wIdx[mid]) {
+            if (weights[mid] <= w) {
                 lo = mid;
-            } else if (n < wIdx[mid]) {
-                if (n >= wIdx[mid - 1]) {
-                    return mid;
-                } else {
-                    hi = mid;
-                }
+            } else if (weights[mid - 1] > w) {
+                hi = mid;
             } else {
-                return mid + 1;
+                return mid;
             }
         }
-        if (wIdx[hi] > n && wIdx[hi - 1] <= n) {
+        if (w < weights[hi] && w >= weights[lo]) {
             return hi;
-        }
-        if (lo == 0) {
-            return 0;
-        } else if (wIdx[lo] > n && wIdx[lo - 1] <= n) {
+        } else {
             return lo;
         }
-
-        return 0;
     }
 }
 
