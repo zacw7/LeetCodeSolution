@@ -2,7 +2,6 @@ class Solution {
 
     private Random rand;
     private int[] weights;
-    private int i = 0;
 
     public Solution(int[] w) {
         this.rand = new Random();
