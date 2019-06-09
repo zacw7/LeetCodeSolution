@@ -15,48 +15,40 @@ class Node {
 };
 */
 class Solution {
-    // T: O(n) - three passes
-    // S: O(1)
     public Node copyRandomList(Node head) {
         if (head == null) {
             return null;
         }
-
-        // copy nodes
-        Node curr, copy;
-        curr = head;
+        // clone
+        Node curr = head;
         while (curr != null) {
-            copy = new Node(curr.val);
-            copy.next = curr.next;
-            curr.next = copy;
-            curr = copy.next;
+            Node node = new Node();
+            node.val = curr.val;
+            node.next = curr.next;
+            curr.next = node;
+            curr = node.next;
         }
-
-        // copy random pointer
+        // copy random
         curr = head;
         while (curr != null) {
-            copy = curr.next;
             if (curr.random != null) {
-                copy.random = curr.random.next;
+                curr.next.random = curr.random.next;
             }
-            curr = copy.next;
-        }
-        curr = head;
-        while (curr != null) {
-            curr =curr.next;
+            curr = curr.next.next;
         }
         // seperate
-        Node nHead = head.next;
-        curr = head;
-        copy = nHead;
-        while (curr != null) {
-            curr.next = curr.next.next;
-            if (copy.next != null) {
-                copy.next = copy.next.next;
+        Node newHead = head.next;
+        Node n1 = head, n2 = newHead;
+        while (n1 != null) {
+            n1.next = n2.next;
+            n1 = n1.next;
+            if (n1 != null) {
+                n2.next = n1.next;
+            } else {
+                n2.next = null;
             }
-            curr = curr.next;
-            copy = copy.next;
+            n2 = n2.next;
         }
-        return nHead;
+        return newHead;
     }
 }
