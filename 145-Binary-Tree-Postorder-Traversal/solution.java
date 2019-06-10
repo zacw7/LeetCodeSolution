@@ -9,18 +9,18 @@
  */
 class Solution {
     public List<Integer> postorderTraversal(TreeNode root) {
-        List<Integer> ans = new ArrayList();
+        List<Integer> res = new ArrayList();
         Stack<TreeNode> stack = new Stack();
-        while (root != null || !stack.isEmpty()) {
+        while (!stack.isEmpty() || root != null) {
             if (root != null) {
-                ans.add(root.val);
-                if (root.left != null) stack.push(root.left);
+                res.add(root.val);
+                stack.push(root);
                 root = root.right;
             } else {
-                root = stack.pop();
+                root = stack.pop().left;
             }
         }
-        Collections.reverse(ans);
-        return ans;
+        Collections.reverse(res);
+        return res;
     }
 }

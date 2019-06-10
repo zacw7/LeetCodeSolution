@@ -10,18 +10,21 @@
 class Solution {
     public List<List<Integer>> verticalOrder(TreeNode root) {
         Map<TreeNode, Integer> offsetMap = new HashMap();
-        traverseHelper(root, 0, offsetMap);
+        traverse(root, 0, offsetMap);
 
-        Map<Integer, List<Integer>> nodesMap = new TreeMap();
+        Map<Integer, List<Integer>> columnMap = new TreeMap();
         Queue<TreeNode> queue = new LinkedList();
-        if (root != null) queue.add(root);
+        if (root != null) {
+            queue.offer(root);
+        }
         while (!queue.isEmpty()) {
-            int size = queue.size();
-            while (size-- > 0) {
+            int s = queue.size();
+            while (s-- > 0) {
                 TreeNode node = queue.poll();
-                List<Integer> list = nodesMap.getOrDefault(offsetMap.get(node), new ArrayList());
-                nodesMap.put(offsetMap.get(node), list);
-                list.add(node.val);
+                int offset = offsetMap.get(node);
+                List<Integer> column = columnMap.getOrDefault(offset, new ArrayList());
+                column.add(node.val);
+                columnMap.put(offset, column);
                 if (node.left != null) {
                     queue.offer(node.left);
                 }
@@ -30,15 +33,15 @@ class Solution {
                 }
             }
         }
-        return new ArrayList(nodesMap.values());
+        return new ArrayList(columnMap.values());
     }
 
-    private void traverseHelper(TreeNode node, int offset, Map<TreeNode, Integer> offsetMap) {
+    private void traverse(TreeNode node, int offset, Map<TreeNode, Integer> offsetMap) {
         if (node == null) {
             return;
         }
         offsetMap.put(node, offset);
-        traverseHelper(node.left, offset - 1, offsetMap);
-        traverseHelper(node.right, offset + 1, offsetMap );
+        traverse(node.left, offset - 1, offsetMap);
+        traverse(node.right, offset + 1, offsetMap);
     }
 }
