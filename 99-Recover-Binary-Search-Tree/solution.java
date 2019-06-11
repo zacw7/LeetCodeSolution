@@ -8,25 +8,28 @@
  * }
  */
 class Solution {
+    // inorder traverse and sorting
+    // TC: O(N + NlogN)
+    // SC: O(N)
     public void recoverTree(TreeNode root) {
-        Queue<TreeNode> inorder = new LinkedList();
-        Stack<TreeNode> stack = new Stack();
         List<Integer> values = new ArrayList();
-        while (root != null || !stack.isEmpty()) {
-            if (root == null) {
-                root = stack.pop();
-                values.add(root.val);
-                inorder.add(root);
-                root = root.right;
+        List<TreeNode> inorder = new ArrayList();
+        Stack<TreeNode> stack = new Stack();
+        TreeNode node = root;
+        while (node != null || !stack.isEmpty()) {
+            if (node != null) {
+                stack.push(node);
+                node = node.left;
             } else {
-                stack.push(root);
-                root = root.left;
+                node = stack.pop();
+                inorder.add(node);
+                values.add(node.val);
+                node = node.right;
             }
         }
         Collections.sort(values);
-        for (int i = 0, s = values.size(); i < s && !inorder.isEmpty(); i++) {
-            TreeNode node = inorder.poll();
-            node.val = values.get(i);
+        for (int i = 0; i < values.size(); i++) {
+            inorder.get(i).val = values.get(i);
         }
     }
 }
