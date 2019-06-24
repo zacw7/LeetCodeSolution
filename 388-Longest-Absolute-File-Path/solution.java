@@ -1,39 +1,39 @@
 class Solution {
     public int lengthLongestPath(String input) {
-        Stack<Integer> lenStack = new Stack();
         int maxLen = 0;
-        for (int i = 0; i < input.length(); i++) {
-            int layer = 0;
-            while (i < input.length() && input.charAt(i) == '\t') {
-                layer++;
-                i++;
-            }
-            StringBuilder sb = new StringBuilder();
-            int curLen = 0;
-            boolean isFile = false;
-            while (i < input.length() && input.charAt(i) != '\n') {
-                if (input.charAt(i) == '.') {
-                    isFile = true;
-                }
-                curLen++;
-                i++;
-            }
-            while (lenStack.size() > layer) {
-                lenStack.pop();
-            }
-            if (isFile) {
-                if (lenStack.isEmpty()) {
-                    maxLen = Math.max(maxLen, curLen);
-                } else {
+        char[] chs = input.toCharArray();
+        Stack<Integer> lenStack = new Stack();
+        lenStack.push(0);
+        int curLen = 0, curLevel = 1;
+        boolean isFile = false;
+        int i = 0;
+        while(i < chs.length) {
+            if (chs[i] == '\n') {
+                if (isFile) {
                     maxLen = Math.max(maxLen, curLen + lenStack.peek());
-                }
-            } else {
-                if (lenStack.isEmpty()) {
-                    lenStack.push(curLen + 1);
                 } else {
                     lenStack.push(lenStack.peek() + curLen + 1);
                 }
+                isFile = false;
+                curLen = 0;
+                int level = 1;
+                while (i + 1 < chs.length && chs[i + 1] == '\t') {
+                    level++;
+                    i++;
+                }
+                while (lenStack.size() > level) {
+                    lenStack.pop();
+                }
+            } else {
+                curLen++;
+                if (chs[i] == '.') {
+                    isFile = true;
+                }
             }
+            i++;
+        }
+        if (isFile) {
+            maxLen = Math.max(maxLen, curLen + lenStack.peek());
         }
         return maxLen;
     }
