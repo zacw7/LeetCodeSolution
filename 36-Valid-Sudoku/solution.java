@@ -1,44 +1,48 @@
 class Solution {
     public boolean isValidSudoku(char[][] board) {
-        // validate rows
-        for (int i = 0; i < 9; i++) {
-            Set<Character> digitSet = new HashSet();
-            for (int j = 0; j < 9; j++) {
-                if (board[i][j] == '.') continue;
-                if (digitSet.contains(board[i][j])) {
-                    return false;
-                } else {
-                    digitSet.add(board[i][j]);
+        int N = 9;
+        boolean[] seen = new boolean[9];
+        // check rows
+        for (int r = 0; r < N; r++) {
+            for (int c = 0; c < N; c++) {
+                if (board[r][c] != '.') {
+                    if (seen[board[r][c] - '1']) {
+                        return false;
+                    } else {
+                        seen[board[r][c] - '1'] = true;
+                    }
                 }
             }
+            Arrays.fill(seen, false);
         }
-        // validate columns
-        for (int j = 0; j < 9; j++) {
-            Set<Character> digitSet = new HashSet();
-            for (int i = 0; i < 9; i++) {
-                if (board[i][j] == '.') continue;
-                if (digitSet.contains(board[i][j])) {
-                    return false;
-                } else {
-                    digitSet.add(board[i][j]);
+        // check column
+        for (int c = 0; c < N; c++) {
+            for (int r = 0; r < N; r++) {
+                if (board[r][c] != '.') {
+                    if (seen[board[r][c] - '1']) {
+                        return false;
+                    } else {
+                        seen[board[r][c] - '1'] = true;
+                    }
                 }
             }
+            Arrays.fill(seen, false);
         }
-        // validate sub-boxes
-        for (int offSetR = 0; offSetR < 3; offSetR++) {
-            for (int offSetC = 0; offSetC < 3; offSetC++) {
-                Set<Character> digitSet = new HashSet();
-                for (int i = 0; i < 3; i++) {
-                    for (int j = 0; j < 3; j++) {
-                        int indexR = i + 3 * offSetR, indexC = j + 3 * offSetC;
-                        if (board[indexR][indexC] == '.') continue;
-                        if (digitSet.contains(board[indexR][indexC])) {
-                            return false;
-                        } else {
-                            digitSet.add(board[indexR][indexC]);
+        // check sub-boxes
+        for (int x = 1; x < N; x += 3) {
+            for (int y = 1; y < N; y += 3) {
+                for (int r = x - 1; r <= x + 1; r++) {
+                    for (int c = y - 1; c <= y + 1; c++) {
+                        if (board[r][c] != '.') {
+                            if (seen[board[r][c] - '1']) {
+                                return false;
+                            } else {
+                                seen[board[r][c] - '1'] = true;
+                            }
                         }
                     }
                 }
+                Arrays.fill(seen, false);
             }
         }
         return true;

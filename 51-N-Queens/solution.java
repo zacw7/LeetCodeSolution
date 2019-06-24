@@ -1,40 +1,54 @@
 class Solution {
-    List<List<String>> res = new ArrayList();
     public List<List<String>> solveNQueens(int n) {
+        List<List<String>> ans = new ArrayList();
+        if (n <= 0) {
+            return ans;
+        }
         char[][] board = new char[n][n];
-        for (int i = 0; i < n; i++) Arrays.fill(board[i], '.');
-        if (n > 0) helper(board, 0, n);
-        return res;
+        for (char[] row : board) {
+            Arrays.fill(row, '.');
+        }
+        dfs(board, 0, n, ans);
+        return ans;
     }
 
-    private void helper(char[][] board, int r, int N) {
-        if (r >= N) {
-            List<String> solution = new ArrayList();
-            for (char[] row : board) solution.add(new String(row));
-            res.add(solution);
-        } else {
-            for (int i = 0; i < N; i++) {
-                if (isValid(board, r, i, N)) {
-                    board[r][i] = 'Q';
-                    helper(board, r + 1, N);
-                    board[r][i] = '.';
-                }
+    private void dfs(char[][] board, int r, int n, List<List<String>> ans) {
+        if (r == n) {
+            List<String> list = new ArrayList();
+            for (char[] row : board) {
+                list.add(new String(row));
+            }
+            ans.add(list);
+            return;
+        }
+
+        for (int c = 0; c < n; c++) {
+            if (isValid(board, r, c, n)) {
+                board[r][c] = 'Q';
+                dfs(board, r + 1, n, ans);
+                board[r][c] = '.';
             }
         }
     }
 
-    private boolean isValid(char[][] board, int r, int c, int N) {
-        if (r == 0) return true;
+    private boolean isValid(char[][] board, int r, int c, int n) {
         // check column
-        for (int i = 0; i < r; i++) {
-            if (board[i][c] == 'Q') return false;
+        for (int i = 0; i < n; i++) {
+            if (board[i][c] == 'Q') {
+                return false;
+            }
         }
-        // check diagonal
-        for (int i = r - 1, j = c - 1; i >= 0 && j >= 0; i--, j--) {
-            if (board[i][j] == 'Q') return false;
-        }
-        for (int i = r - 1, j = c + 1; i >= 0 && j < N; i--, j++) {
-            if (board[i][j] == 'Q') return false;
+        // check diagonals
+        int[][] dir = {{-1, -1}, {-1, 1}, {1, -1}, {1, 1}};
+        for (int[] d : dir) {
+            int i = r + d[0], j = c + d[1];
+            while (i >= 0 && i < n && j >= 0 && j < n) {
+                if (board[i][j] == 'Q') {
+                    return false;
+                }
+                i += d[0];
+                j += d[1];
+            }
         }
         return true;
     }

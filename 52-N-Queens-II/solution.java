@@ -1,41 +1,29 @@
 class Solution {
-    List<List<String>> res = new ArrayList();
-    public List<List<String>> solveNQueens(int n) {
-        char[][] board = new char[n][n];
-        for (int i = 0; i < n; i++) Arrays.fill(board[i], '.');
-        if (n > 0) helper(board, 0, n);
-        return res;
+    int N, ans;
+    boolean[] cols, digL, digR;
+    public int totalNQueens(int n) {
+        if (n <= 0) {
+            return 0;
+        }
+        ans = 0;
+        N = n;
+        cols = new boolean[N];
+        digL = new boolean[N * 2 - 1];
+        digR = new boolean[N * 2 - 1];
+        dfs(0);
+        return ans;
     }
 
-    private void helper(char[][] board, int r, int N) {
-        if (r >= N) {
-            List<String> solution = new ArrayList();
-            for (char[] row : board) solution.add(new String(row));
-            res.add(solution);
-        } else {
-            for (int i = 0; i < N; i++) {
-                if (isValid(board, r, i, N)) {
-                    board[r][i] = 'Q';
-                    helper(board, r + 1, N);
-                    board[r][i] = '.';
-                }
+    private void dfs(int r) {
+        if (r == N) {
+            ans++;
+        }
+        for (int c = 0; c < N; c++) {
+            if (!cols[c] && !digL[r - c + N - 1] && !digR[r + c]) {
+                cols[c] = digL[r - c + N - 1] = digR[r + c] = true;
+                dfs(r + 1);
+                cols[c] = digL[r - c + N - 1] = digR[r + c] = false;
             }
         }
-    }
-
-    private boolean isValid(char[][] board, int r, int c, int N) {
-        if (r == 0) return true;
-        // check column
-        for (int i = 0; i < r; i++) {
-            if (board[i][c] == 'Q') return false;
-        }
-        // check diagonal
-        for (int i = r - 1, j = c - 1; i >= 0 && j >= 0; i--, j--) {
-            if (board[i][j] == 'Q') return false;
-        }
-        for (int i = r - 1, j = c + 1; i >= 0 && j < N; i--, j++) {
-            if (board[i][j] == 'Q') return false;
-        }
-        return true;
     }
 }
