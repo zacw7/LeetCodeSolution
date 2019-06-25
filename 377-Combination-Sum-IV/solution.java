@@ -1,20 +1,15 @@
 class Solution {
-    public int bagOfTokensScore(int[] tokens, int P) {
-        int max = 0, temp = 0;
-        Arrays.sort(tokens);
-        int left = 0, right = tokens.length - 1;
-        while (left <= right) {
-            if (P >= tokens[left]) {
-                temp++;
-                P -= tokens[left++];
-                if (temp > max) max = temp;
-            } else if (temp > 0) {
-                temp--;
-                P += tokens[right--];
-            } else {
-                break;
+    public int combinationSum4(int[] nums, int target) {
+        int[] dp = new int[target + 1];
+        for (int i = 1; i <= target; i++) {
+            for (int n : nums) {
+                if (i > n) {
+                    dp[i] += dp[i - n];
+                } else if (i == n) {
+                    dp[i] += 1;
+                }
             }
         }
-        return max;
+        return dp[target];
     }
 }

@@ -1,24 +1,27 @@
 class Solution {
-    List<List<Integer>> ans;
-    Set<String> seen;
     public List<List<Integer>> combinationSum2(int[] candidates, int target) {
-        ans = new ArrayList();
-        seen = new HashSet();
-        dfs(candidates, 0, target, new ArrayList());
+        List<List<Integer>> ans = new ArrayList();
+        Arrays.sort(candidates);
+        dfs(candidates, 0, target, new ArrayList(), ans);
         return ans;
     }
 
-    private void dfs(int[] candidates, int i, int target, List<Integer> list) {
-        if (target == 0) {
-            List<Integer> comb = new ArrayList(list);
-            Collections.sort(comb);
-            if (!seen.contains(comb.toString())) ans.add(comb);
-            seen.add(comb.toString());
+    private void dfs(int[] candidates, int index, int target, List<Integer> cur, List<List<Integer>> ans) {
+        if (target < 0) {
+            return;
         }
-        if (target <= 0 || i >= candidates.length) return;
-        list.add(candidates[i]);
-        dfs(candidates, i + 1, target - candidates[i], list);
-        list.remove(list.size() - 1);
-        dfs(candidates, i + 1, target, list);
+        if (index == candidates.length) {
+            if (target == 0) {
+                ans.add(new ArrayList(cur));
+            }
+            return;
+        }
+
+        if (cur.isEmpty() || candidates[index] != cur.get(cur.size() - 1)) {
+            dfs(candidates, index + 1, target, cur, ans);
+        }
+        cur.add(candidates[index]);
+        dfs(candidates, index + 1, target - candidates[index], cur, ans);
+        cur.remove(cur.size() - 1);
     }
 }
