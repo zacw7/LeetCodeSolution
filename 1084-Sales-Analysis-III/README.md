@@ -1,8 +1,8 @@
-# 1083. Sales Analysis II
+# 1084. Sales Analysis III
 
 **Easy**
 
-[Original Page](https://leetcode.com/problems/sales-analysis-ii/)
+[Original Page](https://leetcode.com/problems/sales-analysis-iii/)
 
 SQL Schema >
 ```
@@ -47,7 +47,7 @@ This table has no primary key, it can have repeated rows.
 product_id is a foreign key to Product table.
 ```
 
-Write an SQL query that reports the __buyers__ who have bought _S8_ but not _iPhone_. Note that _S8_ and _iPhone_ are products present in the `Product` table.
+Write an SQL query that reports the __products__ that were __only__ sold in spring 2019. That is, between __2019-01-01__ and __2019-03-31__ inclusive.
 
 The query result format is in the following example:
 ```
@@ -66,15 +66,15 @@ Sales table:
 +-----------+------------+----------+------------+----------+-------+
 | 1         | 1          | 1        | 2019-01-21 | 2        | 2000  |
 | 1         | 2          | 2        | 2019-02-17 | 1        | 800   |
-| 2         | 1          | 3        | 2019-06-02 | 1        | 800   |
-| 3         | 3          | 3        | 2019-05-13 | 2        | 2800  |
+| 2         | 2          | 3        | 2019-06-02 | 1        | 800   |
+| 3         | 3          | 4        | 2019-05-13 | 2        | 2800  |
 +-----------+------------+----------+------------+----------+-------+
 
 Result table:
-+-------------+
-| buyer_id    |
-+-------------+
-| 1           |
-+-------------+
-The buyer with id 1 bought an S8 but didn't buy an iPhone. The buyer with id 3 bought both.
++-------------+--------------+
+| product_id  | product_name |
++-------------+--------------+
+| 1           | S8           |
++-------------+--------------+
+The product with id 1 was only sold in spring 2019 while the other two were sold after.
 ```
