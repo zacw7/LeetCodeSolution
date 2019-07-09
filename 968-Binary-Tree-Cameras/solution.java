@@ -43,14 +43,4 @@ class Solution {
         }
         return res;
     }
-
-    class State {
-        int count;
-        boolean needCamera;
-
-        State() {
-            this.count = 0;
-            this.needCamera = false;
-        }
-    }
 }

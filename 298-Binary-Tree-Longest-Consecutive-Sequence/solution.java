@@ -8,29 +8,30 @@
  * }
  */
 class Solution {
+
+    int maxLen = 0;
+
     public int longestConsecutive(TreeNode root) {
-        if (root == null) {
-            return 0;
+        if (root != null) {
+            longestConsecutive(root, 1);
         }
-        int[] ans = {0};
-        searchHelper(root, 1, ans);
-        return ans[0];
+        return maxLen;
     }
 
-    private void searchHelper(TreeNode node, int curLen, int[] ans) {
-        ans[0] = Math.max(ans[0], curLen);
+    private void longestConsecutive(TreeNode node, int len) {
+        maxLen = Math.max(maxLen, len);
         if (node.left != null) {
             if (node.val + 1 == node.left.val) {
-                searchHelper(node.left, curLen + 1, ans);
+                longestConsecutive(node.left, len + 1);
             } else {
-                searchHelper(node.left, 1, ans);
+                longestConsecutive(node.left, 1);
             }
         }
         if (node.right != null) {
             if (node.val + 1 == node.right.val) {
-                searchHelper(node.right, curLen + 1, ans);
+                longestConsecutive(node.right, len + 1);
             } else {
-                searchHelper(node.right, 1, ans);
+                longestConsecutive(node.right, 1);
             }
         }
     }
