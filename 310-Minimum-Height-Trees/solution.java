@@ -1,44 +1,38 @@
 class Solution {
     public List<Integer> findMinHeightTrees(int n, int[][] edges) {
-        List<Integer> res = new ArrayList();
-        if (n == 0) {
-            return res;
-        }
-        if (n == 1) {
-            res.add(0);
-            return res;
-        }
+        Set<Integer> res = new HashSet();
         int[] degrees = new int[n];
-        Map<Integer, Set<Integer>> adjNodes = new HashMap();
+        List<Integer>[] adjList = new List[n];
         for (int[] e : edges) {
             degrees[e[0]]++;
             degrees[e[1]]++;
-            Set<Integer> s1 = adjNodes.getOrDefault(e[0], new HashSet());
-            Set<Integer> s2 = adjNodes.getOrDefault(e[1], new HashSet());
-            s1.add(e[1]);
-            s2.add(e[0]);
-            adjNodes.put(e[0], s1);
-            adjNodes.put(e[1], s2);
+            if (adjList[e[0]] == null) {
+                adjList[e[0]] = new ArrayList();
+            }
+            if (adjList[e[1]] == null) {
+                adjList[e[1]] = new ArrayList();
+            }
+            adjList[e[0]].add(e[1]);
+            adjList[e[1]].add(e[0]);
         }
-        Queue<Integer> leaves = new LinkedList();
-        while (adjNodes.size() > 2) {
+        for (int i = 0; i < n; i++) {
+            res.add(i);
+        }
+        while (res.size() > 2) {
+            List<Integer> tmp = new ArrayList();
             for (int i = 0; i < n; i++) {
                 if (degrees[i] == 1) {
-                    leaves.offer(i);
+                    tmp.add(i);
                 }
             }
-            while (!leaves.isEmpty()) {
-                int node = leaves.poll();
+            for (int node : tmp) {
                 degrees[node]--;
-                for (int neighbor : adjNodes.get(node)) {
+                for (int neighbor : adjList[node]) {
                     degrees[neighbor]--;
-                    Set<Integer> set = adjNodes.get(neighbor);
-                    set.remove(node);
-                    adjNodes.put(neighbor, set);
                 }
-                adjNodes.remove(node);
             }
+            res.removeAll(tmp);
         }
-        return new ArrayList(adjNodes.keySet());
+        return new ArrayList(res);
     }
 }
