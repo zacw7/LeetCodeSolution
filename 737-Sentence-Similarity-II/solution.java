@@ -21,35 +21,37 @@ class Solution {
 
     class DSU {
         Map<String, String> parents;
+        Map<String, Integer> rank;
 
         DSU() {
             this.parents = new HashMap();
-        }
-
-        String find(String x) {
-            if (!parents.containsKey(x)) {
-                parents.put(x, x);
-            }
-            String parent = parents.get(x);
-            while (!parent.equals(parents.get(parent))) {
-                parent = parents.get(parent);
-            }
-            // with compression
-            String child = x;
-            while (!parent.equals(parents.get(child))) {
-                String tmp = parents.get(child);
-                parents.put(child, parent);
-                child = tmp;
-            }
-            return parent;
+            this.rank = new HashMap();
         }
 
         void union(String x, String y) {
-            String pa_x = find(x);
-            String pa_y = find(y);
-            if (!pa_x.equals(pa_y)) {
-                parents.put(pa_x, pa_y);
+            String p_x = find(x);
+            String p_y = find(y);
+            if (!p_x.equals(p_y)) {
+                int r_x = rank.getOrDefault(p_x, 0);
+                int r_y = rank.getOrDefault(p_y, 0);
+                if (r_x > r_y) {
+                    parents.put(p_y, p_x);
+                } else if (r_x < r_y) {
+                    parents.put(p_x, p_y);
+                } else {
+                    parents.put(p_x, p_y);
+                    rank.put(p_y, r_y + 1);
+                }
             }
+        }
+
+        String find(String x) {
+            String p = parents.getOrDefault(x, x);
+            if (!x.equals(p)) {
+                p = find(p);
+                parents.put(x, p);
+            }
+            return p;
         }
     }
 }
