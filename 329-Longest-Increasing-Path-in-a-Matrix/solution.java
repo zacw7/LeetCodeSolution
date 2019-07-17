@@ -1,42 +1,48 @@
 class Solution {
-    private int R, C;
+    int R, C;
+    boolean[][] visited;
+    int[][] dp;
+    int[][] dirs = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
+
     public int longestIncreasingPath(int[][] matrix) {
-        if (matrix == null || matrix.length == 0 || matrix[0].length == 0) {
+        if (matrix == null || matrix.length == 0 || matrix[0] == null || matrix[0].length == 0) {
             return 0;
         }
-
         R = matrix.length;
         C = matrix[0].length;
-        int max = 0;
-        int memo[][] = new int[R][C];
-
+        visited = new boolean[R][C];
+        dp = new int[R][C];
         for (int r = 0; r < R; r++) {
             for (int c = 0; c < C; c++) {
-                max = Math.max(max, findLen(matrix, r, c, memo));
+                if (!visited[r][c]) {
+                    dfs(matrix, r, c);
+                }
             }
         }
-
-        return max;
+        int maxLen = 0;
+        for (int[] d : dp) {
+            for (int len : d) {
+                maxLen = Math.max(maxLen, len);
+            }
+        }
+        return maxLen;
     }
 
-    private int findLen(int[][] matrix, int r, int c, int[][] memo) {
-        if (memo[r][c] > 0) {
-            return memo[r][c];
+    private int dfs(int[][] matrix, int r, int c) {
+        if (dp[r][c] > 0) {
+            return dp[r][c];
         }
+        visited[r][c] = true;
         int len = 0;
-        if (r > 0 && matrix[r][c] < matrix[r - 1][c]) {
-            len = Math.max(len, findLen(matrix, r - 1, c, memo));
+        for (int[] d : dirs) {
+            int nr = r + d[0], nc = c + d[1];
+            if (nr >= 0 && nr < R && nc >= 0 && nc < C && matrix[nr][nc] > matrix[r][c] && !visited[nr][nc]) {
+                len = Math.max(len, dfs(matrix, nr, nc));
+            }
         }
-        if (r + 1 < R && matrix[r][c] < matrix[r + 1][c]) {
-            len = Math.max(len, findLen(matrix, r + 1, c, memo));
-        }
-        if (c > 0 && matrix[r][c] < matrix[r][c - 1]) {
-            len = Math.max(len, findLen(matrix, r, c - 1, memo));
-        }
-        if (c + 1 < C && matrix[r][c] < matrix[r][c + 1]) {
-            len = Math.max(len, findLen(matrix, r, c + 1, memo));
-        }
-        memo[r][c] = len + 1;
-        return memo[r][c];
+        dp[r][c] = len + 1;
+        visited[r][c] = false;
+        return len + 1;
     }
+
 }
