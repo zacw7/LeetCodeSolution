@@ -25,7 +25,7 @@ A ship capacity of 15 is the minimum to ship all the packages in 5 days like thi
 Note that the cargo must be shipped in the order given, so using a ship of capacity 14 and splitting the packages into parts like (2, 3, 4, 5), (1, 6, 7), (8), (9), (10) is not allowed. 
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: weights = [3,2,2,4,1,4], D = 3
 Output: 6

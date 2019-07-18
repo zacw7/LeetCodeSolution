@@ -14,7 +14,7 @@ Input: A = [1], K = 1
 Output: 1
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: A = [1,2], K = 4
 Output: -1

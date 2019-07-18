@@ -22,7 +22,7 @@ Output: 1
 Explanation: There are three persons labeled with 0, 1 and 2. graph[i][j] = 1 means person i knows person j, otherwise graph[i][j] = 0 means person i does not know person j. The celebrity is the person labeled as 1 because both 0 and 2 know him but 1 does not know anybody.
 ```
 
-##### Example 2: 
+##### Example 2:
 ![](https://assets.leetcode.com/uploads/2019/02/02/277_example_2.PNG)
 ```
 Input: graph = [

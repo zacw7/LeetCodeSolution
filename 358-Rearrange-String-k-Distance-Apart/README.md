@@ -15,7 +15,7 @@ Output: "abcabc"
 Explanation: The same letters are at least distance 3 from each other.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: s = "aaabc", k = 3
 Output: "" 

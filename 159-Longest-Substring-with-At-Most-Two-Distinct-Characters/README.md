@@ -13,7 +13,7 @@ Output: 3
 Explanation: t is "ece" which its length is 3.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: "ccaabbb"
 Output: 5

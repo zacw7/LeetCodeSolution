@@ -19,7 +19,7 @@ Output: "1A3B"
 Explanation: 1 bull and 3 cows. The bull is 8, the cows are 0, 1 and 7.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: secret = "1123", guess = "0111"
 

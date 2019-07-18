@@ -22,7 +22,7 @@ If Alex sits in any other open seat, the closest person has distance 1.
 Thus, the maximum distance to the closest person is 2.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: [1,0,0,0]
 Output: 3

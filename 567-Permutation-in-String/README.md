@@ -13,7 +13,7 @@ Output: True
 Explanation: s2 contains one permutation of s1 ("ba").
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input:s1= "ab" s2 = "eidboaoo"
 Output: False

@@ -15,7 +15,7 @@ Output: true
 Explanation: 'a' and 'e' in 'alex' were long pressed.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: name = "saeed", typed = "ssaaedd"
 Output: false

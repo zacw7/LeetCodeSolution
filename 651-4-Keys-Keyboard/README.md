@@ -25,7 +25,7 @@ We can at most get 3 A's on screen by pressing following key sequence:
 A, A, A
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: N = 7
 Output: 9

@@ -17,7 +17,7 @@ Output: 1
 Explanation: 1 boat (1, 2)
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: people = [3,2,2,1], limit = 3
 Output: 3

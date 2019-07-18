@@ -20,7 +20,7 @@ Explanation: There are a total of 2 courses to take. To take course 1 you should
              course 0. So the correct course order is [0,1] .
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: 4, [[1,0],[2,0],[3,1],[3,2]]
 Output: [0,1,2,3] or [0,2,1,3]

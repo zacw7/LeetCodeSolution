@@ -22,7 +22,7 @@ rorse -> rose (remove 'r')
 rose -> ros (remove 'e')
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: word1 = "intention", word2 = "execution"
 Output: 5

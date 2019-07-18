@@ -21,7 +21,7 @@ Explanation:
 We assign bike 0 to worker 0, bike 1 to worker 1. The Manhattan distance of both assignments is 3, so the output is 6.
 ```
 
-##### Example 2: 
+##### Example 2:
 ![](https://assets.leetcode.com/uploads/2019/03/06/1261_example_2_v2.png)
 ```
 Input: workers = [[0,0],[1,1],[2,0]], bikes = [[1,0],[2,2],[2,1]]

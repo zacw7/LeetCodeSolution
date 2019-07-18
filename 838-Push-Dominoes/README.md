@@ -28,7 +28,7 @@ Input: ".L.R...LR..L.."
 Output: "LL.RR.LLRRLL.."
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: "RR.L"
 Output: "RR.L"

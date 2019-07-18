@@ -28,7 +28,7 @@ From starting index i = 4, we've reached the end already.
 In total, there are 2 different starting indexes (i = 3, i = 4) where we can reach the end with some number of jumps.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: [2,3,1,1,4]
 Output: 3

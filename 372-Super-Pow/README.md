@@ -12,7 +12,7 @@ Input: a = 2, b = [3]
 Output: 8
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: a = 2, b = [1,0]
 Output: 1024

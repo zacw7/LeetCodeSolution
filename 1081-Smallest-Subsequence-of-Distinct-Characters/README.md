@@ -12,7 +12,7 @@ Input: "cdadabcc"
 Output: "adbc"
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: "abcd"
 Output: "abcd"

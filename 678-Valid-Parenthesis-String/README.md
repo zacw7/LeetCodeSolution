@@ -18,7 +18,7 @@ Input: "()"
 Output: True
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: "(*)"
 Output: True

@@ -15,7 +15,7 @@ Output: "110"
 Explantion: (-2) ^ 2 + (-2) ^ 1 = 2
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: 3
 Output: "111"

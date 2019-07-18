@@ -15,7 +15,7 @@ Output: 1
 Explanation: The smallest answer is N = 1, which has length 1.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: 2
 Output: -1

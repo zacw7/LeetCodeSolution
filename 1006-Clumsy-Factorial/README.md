@@ -21,7 +21,7 @@ Output: 7
 Explanation: 7 = 4 * 3 / 2 + 1
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: 10
 Output: 12

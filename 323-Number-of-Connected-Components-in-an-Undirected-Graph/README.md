@@ -17,7 +17,7 @@ Input: n = 5 and edges = [[0, 1], [1, 2], [3, 4]]
 Output: 2
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: n = 5 and edges = [[0, 1], [1, 2], [2, 3], [3, 4]]
 

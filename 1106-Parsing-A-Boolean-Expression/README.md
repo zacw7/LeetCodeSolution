@@ -20,7 +20,7 @@ Input: expression = "!(f)"
 Output: true
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: expression = "|(f,t)"
 Output: true

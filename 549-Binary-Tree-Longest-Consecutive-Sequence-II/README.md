@@ -18,7 +18,7 @@ Output: 2
 Explanation: The longest consecutive path is [1, 2] or [2, 1].
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input:
         2

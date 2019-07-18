@@ -14,7 +14,7 @@ Explanation:
 The array can be divided into the two subsequences [1,2,3,4] and [2,3,4] with lengths at least 3 each.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: nums = [5,6,6,7,8], K = 3
 Output: false

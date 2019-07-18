@@ -51,7 +51,7 @@ Input: s1 = "great", s2 = "rgeat"
 Output: true
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: s1 = "abcde", s2 = "caebd"
 Output: false

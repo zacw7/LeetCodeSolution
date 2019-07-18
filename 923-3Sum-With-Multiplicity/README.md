@@ -20,7 +20,7 @@ Enumerating by the values (A[i], A[j], A[k]):
 (2, 3, 3) occurs 2 times.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: A = [1,1,2,2,2,2], target = 5
 Output: 12

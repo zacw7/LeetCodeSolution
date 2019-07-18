@@ -16,7 +16,7 @@ Explanation:
 [1,8,17] and [17,8,1] are the valid permutations.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: [2,2,2]
 Output: 1

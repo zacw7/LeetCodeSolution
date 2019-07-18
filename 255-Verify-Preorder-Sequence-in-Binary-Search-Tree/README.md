@@ -24,7 +24,7 @@ Input: [5,2,6,1,3]
 Output: false
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: [5,2,1,3,6]
 Output: true

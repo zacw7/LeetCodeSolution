@@ -12,7 +12,7 @@ Input: 123
 Output: "One Hundred Twenty Three"
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: 12345
 Output: "Twelve Thousand Three Hundred Forty Five"

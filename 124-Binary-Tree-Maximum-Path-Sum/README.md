@@ -19,7 +19,7 @@ Input: [1,2,3]
 Output: 6
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: [-10,9,20,null,null,15,7]
 

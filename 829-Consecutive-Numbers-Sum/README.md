@@ -13,7 +13,7 @@ Output: 2
 Explanation: 5 = 5 = 2 + 3
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: 9
 Output: 3

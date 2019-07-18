@@ -22,7 +22,7 @@ Explanation:
 3rd move:    2     1 <-- 3    =>    2     2     2
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: [0,3,0]
 

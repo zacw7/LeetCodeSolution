@@ -19,7 +19,7 @@ Output: true
 Explanation: We can insert 'c' into s to get t.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: s = "cab", t = "ad"
 Output: false

@@ -13,7 +13,7 @@ Output: 2
 Explanation: The longest valid parentheses substring is "()"
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: ")()())"
 Output: 4

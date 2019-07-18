@@ -12,7 +12,7 @@ Input: [1,2,3]
 Output: 6
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: [1,2,3,4]
 Output: 24

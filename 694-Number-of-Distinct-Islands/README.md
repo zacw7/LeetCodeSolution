@@ -17,7 +17,7 @@ Count the number of __distinct__ islands. An island is considered to be the same
 ```
 Given the above grid map, return `1`.
 
-##### Example 2: 
+##### Example 2:
 ```
 11011
 10000

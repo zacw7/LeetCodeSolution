@@ -15,7 +15,7 @@ Output: 2
 Explanation: The target "abcbc" can be formed by "abc" and "bc", which are subsequences of source "abc".
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: source = "abc", target = "acdbc"
 Output: -1

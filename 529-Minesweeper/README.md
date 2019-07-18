@@ -36,7 +36,7 @@ Explanation:
 ```
 ![](https://assets.leetcode.com/uploads/2018/10/12/minesweeper_example_1.png)
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: 
 

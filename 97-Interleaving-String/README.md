@@ -12,7 +12,7 @@ Input: s1 = "aabcc", s2 = "dbbca", s3 = "aadbbcbcac"
 Output: true
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: s1 = "aabcc", s2 = "dbbca", s3 = "aadbbbaccc"
 Output: false

@@ -17,7 +17,7 @@ Explanation:
 The word "world" can be built one character at a time by "w", "wo", "wor", and "worl".
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: 
 words = ["a", "banana", "app", "appl", "ap", "apply", "apple"]

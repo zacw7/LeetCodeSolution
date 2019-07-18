@@ -16,7 +16,7 @@ Input: dividend = 10, divisor = 3
 Output: 3
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: dividend = 7, divisor = -3
 Output: -2

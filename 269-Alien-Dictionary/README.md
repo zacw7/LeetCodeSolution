@@ -20,7 +20,7 @@ Input:
 Output: "wertf"
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input:
 [

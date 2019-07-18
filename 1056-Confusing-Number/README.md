@@ -17,7 +17,7 @@ Explanation:
 We get 9 after rotating 6, 9 is a valid number and 9!=6.
 ```
 
-##### Example 2: 
+##### Example 2:
 ![](https://assets.leetcode.com/uploads/2019/03/23/1268_2.png)
 ```
 Input: 89

@@ -23,7 +23,7 @@ Input: 1
 Output: []
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: 37
 Output:[]

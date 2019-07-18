@@ -13,7 +13,7 @@ Output: 7236
 Explanation: Swap the number 2 and the number 7.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: 9973
 Output: 9973

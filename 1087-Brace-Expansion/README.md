@@ -18,7 +18,7 @@ Input: "{a,b}c{d,e}f"
 Output: ["acdf","acef","bcdf","bcef"]
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: "abcd"
 Output: ["abcd"]

@@ -14,7 +14,7 @@ Input: root = [10,5,15,3,7,null,18], L = 7, R = 15
 Output: 32
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: root = [10,5,15,3,7,13,18,1,null,6], L = 6, R = 10
 Output: 23

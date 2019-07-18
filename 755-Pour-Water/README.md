@@ -103,7 +103,7 @@ The final answer is [2,2,2,3,2,2,2]:
  0123456 
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: heights = [1,2,3,4], V = 2, K = 2
 Output: [2,3,3,4]

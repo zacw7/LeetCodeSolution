@@ -27,7 +27,7 @@ The node with value 20 occurs at position (1, -1);
 The node with value 7 occurs at position (2, -2).
 ```
 
-##### Example 2: 
+##### Example 2:
 ![](https://assets.leetcode.com/uploads/2019/01/31/tree2.png)
 ```
 Input: [1,2,3,4,5,6,7]

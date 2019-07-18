@@ -22,7 +22,7 @@ Explanation: We have the following two paths:
 2. (0,0),(1,0),(2,0),(2,1),(1,1),(0,1),(0,2),(0,3),(1,3),(1,2),(2,2)
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: [[1,0,0,0],[0,0,0,0],[0,0,0,2]]
 Output: 4

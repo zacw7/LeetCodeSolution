@@ -15,7 +15,7 @@ Output: 11
 Explanation: There are 11 valid subarrays: [1],[4],[2],[5],[3],[1,4],[2,5],[1,4,2],[2,5,3],[1,4,2,5],[1,4,2,5,3].
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: [3,2,1]
 Output: 3

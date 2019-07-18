@@ -17,7 +17,7 @@ Output: False
 Explanation: There is no 132 pattern in the sequence.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: [3, 1, 4, 2]
 

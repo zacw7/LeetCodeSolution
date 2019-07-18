@@ -18,7 +18,7 @@ nums2 = [2]
 The median is 2.0
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 nums1 = [1, 2]
 nums2 = [3, 4]

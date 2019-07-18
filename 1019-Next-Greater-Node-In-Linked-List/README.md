@@ -18,7 +18,7 @@ Input: [2,1,5]
 Output: [5,5,0]
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: [2,7,4,3,5]
 Output: [7,0,5,5,0]

@@ -18,7 +18,7 @@ Output: 1
 Explanation: We flip the last digit to get 00111.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: "010110"
 Output: 2

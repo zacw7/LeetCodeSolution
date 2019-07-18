@@ -23,7 +23,7 @@ Output:
  ["2", "", ""]]
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input:
      1

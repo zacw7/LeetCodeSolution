@@ -14,7 +14,7 @@ Explanation:
 For the given array, A[0] = -10, A[1] = -5, A[2] = 0, A[3] = 3, thus the output is 3.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: [0,2,5,8,17]
 Output: 0

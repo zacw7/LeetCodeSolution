@@ -14,7 +14,7 @@ Input: "3+2*2"
 Output: 7
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: " 3/2 "
 Output: 1

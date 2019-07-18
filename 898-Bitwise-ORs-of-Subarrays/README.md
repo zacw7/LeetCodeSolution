@@ -18,7 +18,7 @@ Explanation:
 There is only one possible result: 0.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: [1,1,2]
 Output: 3

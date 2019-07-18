@@ -22,7 +22,7 @@ Explanation:
 You can directly reach the destination (0, 1) at time 1, while the ghosts located at (1, 0) or (0, 3) have no way to catch up with you.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: 
 ghosts = [[1, 0]]

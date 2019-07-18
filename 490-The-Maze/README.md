@@ -29,7 +29,7 @@ Explanation: One possible way is : left -> down -> left -> down -> right -> down
 ```
 ![](https://assets.leetcode.com/uploads/2018/10/12/maze_1_example_1.png)
 
-##### Example 2: 
+##### Example 2:
 ```
 Input 1: a maze represented by a 2D array
 

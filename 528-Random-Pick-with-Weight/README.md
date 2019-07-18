@@ -19,7 +19,7 @@ Input:
 Output: [null,0]
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: 
 ["Solution","pickIndex","pickIndex","pickIndex","pickIndex","pickIndex"]

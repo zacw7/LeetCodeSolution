@@ -16,7 +16,7 @@ Output: true
 Explanation: You can form a square with length 2, one side of the square came two sticks with length 1.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: [3,3,3,3,4]
 Output: false

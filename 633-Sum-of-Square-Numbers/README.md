@@ -13,7 +13,7 @@ Output: True
 Explanation: 1 * 1 + 2 * 2 = 5
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: 3
 Output: False

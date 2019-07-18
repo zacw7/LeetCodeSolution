@@ -17,7 +17,7 @@ Initially, we have the team 1 and the team 2, placed like: 1,2.
 Then we pair the team (1,2) together with '(', ')' and ',', which is the final answer.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: 4
 Output: ((1,4),(2,3))

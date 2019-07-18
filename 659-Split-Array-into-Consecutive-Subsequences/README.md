@@ -16,7 +16,7 @@ You can split them into two consecutive subsequences :
 3, 4, 5
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: [1,2,3,3,4,4,5,5]
 Output: True

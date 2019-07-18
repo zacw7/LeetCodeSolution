@@ -14,7 +14,7 @@ Explanation:
 The first missing number is 5.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: A = [4,7,9,10], K = 3
 Output: 8

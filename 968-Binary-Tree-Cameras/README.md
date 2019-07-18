@@ -18,7 +18,7 @@ Output: 1
 Explanation: One camera is enough to monitor all nodes if placed as shown.
 ```
 
-##### Example 2: 
+##### Example 2:
 ![](https://assets.leetcode.com/uploads/2018/12/29/bst_cameras_02.png)
 ```
 Input: [0,0,null,0,null,0,null,null,0]

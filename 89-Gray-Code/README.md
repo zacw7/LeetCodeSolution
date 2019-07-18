@@ -27,7 +27,7 @@ For example, [0,2,3,1] is also a valid gray code sequence.
 01 - 1
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: 0
 Output: [0]

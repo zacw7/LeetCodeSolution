@@ -19,7 +19,7 @@ In the first move, we move the 1st character ("c") to the end, obtaining the str
 In the second move, we move the 1st character ("b") to the end, obtaining the final result "acb".
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: S = "baaca", K = 3
 Output: "aaabc"

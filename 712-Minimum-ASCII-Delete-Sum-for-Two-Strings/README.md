@@ -15,7 +15,7 @@ Deleting "t" from "eat" adds 116 to the sum.
 At the end, both strings are equal, and 115 + 116 = 231 is the minimum sum possible to achieve this.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: s1 = "delete", s2 = "leet"
 Output: 403

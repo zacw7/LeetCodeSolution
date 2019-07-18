@@ -12,7 +12,7 @@ Input: num = "123", target = 6
 Output: ["1+2+3", "1*2*3"] 
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: num = "232", target = 8
 Output: ["2*3+2", "2+3*2"]

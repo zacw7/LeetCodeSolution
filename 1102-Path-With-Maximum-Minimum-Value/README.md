@@ -19,7 +19,7 @@ Explanation:
 The path with the maximum score is highlighted in yellow. 
 ```
 
-##### Example 2: 
+##### Example 2:
 ![](https://assets.leetcode.com/uploads/2019/04/23/1313_ex2.JPG)
 ```
 Input: [[2,2,1,2,2,2],[1,2,2,2,1,2]]

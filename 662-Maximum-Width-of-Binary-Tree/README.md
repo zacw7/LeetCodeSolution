@@ -22,7 +22,7 @@ Output: 4
 Explanation: The maximum width existing in the third level with the length 4 (5,3,null,9).
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: 
 

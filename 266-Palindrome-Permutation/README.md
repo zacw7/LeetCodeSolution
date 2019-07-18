@@ -12,7 +12,7 @@ Input: "code"
 Output: false
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: "aab"
 Output: true

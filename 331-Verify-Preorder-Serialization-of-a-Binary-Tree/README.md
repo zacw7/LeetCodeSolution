@@ -30,7 +30,7 @@ Input: "9,3,4,#,#,1,#,#,2,#,6,#,#"
 Output: true
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: "1,#"
 Output: false

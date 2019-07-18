@@ -14,7 +14,7 @@ Explanation:
 We can use 34 and 24 to sum 58 which is less than 60.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: A = [10,20,30], K = 15
 Output: -1

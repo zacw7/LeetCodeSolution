@@ -27,7 +27,7 @@ Output: "IPv4"
 Explanation: This is a valid IPv4 address, return "IPv4".
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: "2001:0db8:85a3:0:0:8A2E:0370:7334"
 

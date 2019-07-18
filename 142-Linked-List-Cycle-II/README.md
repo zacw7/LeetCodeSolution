@@ -18,7 +18,7 @@ Explanation: There is a cycle in the linked list, where tail connects to the sec
 ```
 ![](https://assets.leetcode.com/uploads/2018/12/07/circularlinkedlist.png)
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: head = [1,2], pos = 0
 Output: tail connects to node index 0

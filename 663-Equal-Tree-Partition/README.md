@@ -30,7 +30,7 @@ Sum: 15
 Sum: 15
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input:     
     1

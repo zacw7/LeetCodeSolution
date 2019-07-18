@@ -30,7 +30,7 @@ Input: "{a,b}{c{d,e}}"
 Output: ["acd","ace","bcd","bce"]
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: "{{a,z},a{b,c},{ab,z}}"
 Output: ["a","ab","ac","z"]

@@ -25,7 +25,7 @@ Output: 3
 Explanation: Longest consecutive sequence path is 3-4-5, so return 3.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input:
 

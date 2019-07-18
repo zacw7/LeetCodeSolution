@@ -14,7 +14,7 @@ Explanation:
 There are 6 substrings they are : 'havef','avefu','vefun','efuno','etcod','tcode'.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: S = "home", K = 5
 Output: 0

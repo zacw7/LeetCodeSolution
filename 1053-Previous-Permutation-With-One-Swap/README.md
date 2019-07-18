@@ -14,7 +14,7 @@ Explanation:
 Swapping 2 and 1.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: [1,1,5]
 Output: [1,1,5]

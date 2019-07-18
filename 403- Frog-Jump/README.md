@@ -30,7 +30,7 @@ Return true. The frog can jump to the last stone by jumping
 4 units to the 7th stone, and 5 units to the 8th stone.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 [0,1,2,3,4,8,9,11]
 

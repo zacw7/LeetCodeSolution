@@ -13,7 +13,7 @@ Output: 3
 Explanation: T is "ece" which its length is 3.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: s = "aa", k = 1
 Output: 2

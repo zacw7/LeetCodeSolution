@@ -15,7 +15,7 @@ Output: 2
 Explanation: Flip A[0], then flip A[2].
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: A = [1,1,0], K = 2
 Output: -1

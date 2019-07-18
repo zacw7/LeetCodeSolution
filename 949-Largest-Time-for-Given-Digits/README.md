@@ -16,7 +16,7 @@ Input: [1,2,3,4]
 Output: "23:41"
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: [5,5,5,5]
 Output: ""

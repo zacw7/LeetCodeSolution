@@ -19,7 +19,7 @@ Explanation:The 0th and 1st students are direct friends, so they are in a friend
 The 2nd student himself is in a friend circle. So return 2.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: 
 [[1,1,0],

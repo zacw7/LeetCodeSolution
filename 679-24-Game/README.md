@@ -13,7 +13,7 @@ Output: True
 Explanation: (8-4) * (7-1) = 24
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: [1, 2, 1, 2]
 Output: False

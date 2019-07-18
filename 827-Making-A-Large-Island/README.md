@@ -15,7 +15,7 @@ Output: 3
 Explanation: Change one 0 to 1 and connect two 1s, then we get an island with area = 3.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: [[1, 1], [1, 0]]
 Output: 4

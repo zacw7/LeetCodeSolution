@@ -22,7 +22,7 @@ Note that a sequence like "0000" -> "0001" -> "0002" -> "0102" -> "0202" would b
 because the wheels of the lock become stuck after the display becomes the dead end "0102".
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: deadends = ["8888"], target = "0009"
 Output: 1

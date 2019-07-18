@@ -20,7 +20,7 @@ Input: root = [1,2,3,4,-99,-99,7,8,9,-99,-99,12,13,-99,14], limit = 1
 Output: [1,2,3,4,null,null,7,8,9,null,14]
 ```
 
-##### Example 2: 
+##### Example 2:
 ![](https://assets.leetcode.com/uploads/2019/06/05/insufficient-3.png)
 ```
 Input: root = [5,4,8,11,null,17,4,7,1,null,null,5,3], limit = 22

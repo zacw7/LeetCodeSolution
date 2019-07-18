@@ -13,7 +13,7 @@ Output: 8
 Explanation: The possible sequences are "A", "B", "AA", "AB", "BA", "AAB", "ABA", "BAA".
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: "AAABBC"
 Output: 188

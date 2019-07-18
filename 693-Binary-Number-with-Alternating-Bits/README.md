@@ -14,7 +14,7 @@ Explanation:
 The binary representation of 5 is: 101
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: 7
 Output: False

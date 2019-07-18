@@ -18,7 +18,7 @@ Explanation:
 There are three 1s that are enclosed by 0s, and one 1 that isn't enclosed because its on the boundary.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: [[0,1,1,0],[0,0,1,0],[0,0,1,0],[0,0,0,0]]
 Output: 0

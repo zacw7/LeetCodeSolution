@@ -20,7 +20,7 @@ Output: 9
 Explanation: The subset chosen is the first, third, and fifth item.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: values = [5,4,3,2,1], labels = [1,3,3,3,2], num_wanted = 3, use_limit = 2
 Output: 12

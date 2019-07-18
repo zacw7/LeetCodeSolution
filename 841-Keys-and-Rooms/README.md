@@ -25,7 +25,7 @@ We then go to room 2, and pick up key 3.
 We then go to room 3.  Since we were able to go to every room, we return true.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: [[1,3],[3,0,1],[2],[0]]
 Output: false

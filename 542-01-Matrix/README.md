@@ -21,7 +21,7 @@ Output:
  [0,0,0]]
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input:
 [[0,0,0],

@@ -19,7 +19,7 @@ Explanation:
 So 'e' must appear before both 'r' and 't'. Therefore "eetr" is also a valid answer.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input:
 "cccaaa"

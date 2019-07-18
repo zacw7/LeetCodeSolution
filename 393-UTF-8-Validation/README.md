@@ -34,7 +34,7 @@ Return true.
 It is a valid utf-8 encoding for a 2-bytes character followed by a 1-byte character.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 data = [235, 140, 4], which represented the octet sequence: 11101011 10001100 00000100.
 

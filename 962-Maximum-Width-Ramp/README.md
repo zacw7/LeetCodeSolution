@@ -16,7 +16,7 @@ Explanation:
 The maximum width ramp is achieved at (i, j) = (1, 5): A[1] = 0 and A[5] = 5.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: [9,8,1,0,1,9,4,0,4,1]
 Output: 7

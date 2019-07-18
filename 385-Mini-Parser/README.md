@@ -21,7 +21,7 @@ Given s = "324",
 You should return a NestedInteger object which contains a single integer 324.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Given s = "[123,[456,[789]]]",
 

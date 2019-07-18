@@ -32,7 +32,7 @@ Input: seq = "(()())"
 Output: [0,1,1,1,1,0]
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: seq = "()(())()"
 Output: [0,0,0,1,1,0,1,1]

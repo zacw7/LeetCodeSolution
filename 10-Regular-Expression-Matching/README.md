@@ -26,7 +26,7 @@ Output: false
 Explanation: "a" does not match the entire string "aa".
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input:
 s = "aa"

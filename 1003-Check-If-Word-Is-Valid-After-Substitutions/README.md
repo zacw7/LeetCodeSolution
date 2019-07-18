@@ -21,7 +21,7 @@ We start with the valid string "abc".
 Then we can insert another "abc" between "a" and "bc", resulting in "a" + "abc" + "bc" which is "aabcbc".
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: "abcabcababcc"
 Output: true

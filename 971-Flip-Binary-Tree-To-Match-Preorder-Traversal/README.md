@@ -25,7 +25,7 @@ Input: root = [1,2], voyage = [2,1]
 Output: [-1]
 ```
 
-##### Example 2: 
+##### Example 2:
 ![](https://assets.leetcode.com/uploads/2019/01/02/1219-02.png)
 ```
 Input: root = [1,2,3], voyage = [1,3,2]

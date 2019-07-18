@@ -19,7 +19,7 @@ Explanation:
 The 10 and -5 collide resulting in 10.  The 5 and 10 never collide.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: 
 asteroids = [8, -8]

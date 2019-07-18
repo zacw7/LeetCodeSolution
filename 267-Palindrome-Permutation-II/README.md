@@ -12,7 +12,7 @@ Input: "aabb"
 Output: ["abba", "baab"]
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: "abc"
 Output: []

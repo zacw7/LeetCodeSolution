@@ -14,7 +14,7 @@ Input: S = "aab"
 Output: "aba"
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: S = "aaab"
 Output: ""

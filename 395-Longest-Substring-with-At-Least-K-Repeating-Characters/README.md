@@ -17,7 +17,7 @@ Output:
 The longest substring is "aaa", as 'a' is repeated 3 times.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input:
 s = "ababbc", k = 2

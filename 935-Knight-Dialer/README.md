@@ -22,7 +22,7 @@ Input: 1
 Output: 10
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: 2
 Output: 20

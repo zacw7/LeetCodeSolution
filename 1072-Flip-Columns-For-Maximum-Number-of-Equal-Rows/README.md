@@ -15,7 +15,7 @@ Output: 1
 Explanation: After flipping no values, 1 row has all values equal.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: [[0,1],[1,0]]
 Output: 2

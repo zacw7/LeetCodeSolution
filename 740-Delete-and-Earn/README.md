@@ -19,7 +19,7 @@ Delete 4 to earn 4 points, consequently 3 is also deleted.
 Then, delete 2 to earn 2 points. 6 total points are earned.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: nums = [2, 2, 3, 3, 3, 4]
 Output: 9

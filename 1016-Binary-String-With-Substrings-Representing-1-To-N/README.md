@@ -12,7 +12,7 @@ Input: S = "0110", N = 3
 Output: true
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: S = "0110", N = 4
 Output: false

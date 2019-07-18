@@ -30,7 +30,7 @@ Output:
 ]
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: [3,9,8,4,0,1,7]
 

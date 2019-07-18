@@ -24,7 +24,7 @@ Explanation:
 10 = 2^0 + 3^2
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: x = 3, y = 5, bound = 15
 Output: [2,4,6,8,10,14]

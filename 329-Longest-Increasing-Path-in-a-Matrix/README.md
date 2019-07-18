@@ -20,7 +20,7 @@ Output: 4
 Explanation: The longest increasing path is [1, 2, 6, 9].
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: nums = 
 [

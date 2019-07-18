@@ -20,7 +20,7 @@ Output: 2
 Explanation: 1's in-order successor node is 2. Note that both p and the return value is of Node type.
 ```
 
-##### Example 2: 
+##### Example 2:
 ![](https://assets.leetcode.com/uploads/2019/01/23/285_example_2.PNG)
 ```
 Input: 

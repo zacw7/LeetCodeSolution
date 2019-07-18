@@ -18,7 +18,7 @@ Explanation: There are a total of 2 courses to take.
              To take course 1 you should have finished course 0. So it is possible.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: 2, [[1,0],[0,1]]
 Output: false

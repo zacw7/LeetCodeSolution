@@ -14,7 +14,7 @@ Explanation:
 ```
 ![](https://assets.leetcode.com/uploads/2018/10/13/out_of_boundary_paths_1.png)
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: m = 1, n = 3, N = 3, i = 0, j = 1
 Output: 12

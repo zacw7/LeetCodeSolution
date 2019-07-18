@@ -13,7 +13,7 @@ Output: 16
 Explanation: The two words can be "abcw", "xtfn".
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: ["a","ab","abc","d","cd","bcd","abcd"]
 Output: 4 

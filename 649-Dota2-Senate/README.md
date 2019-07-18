@@ -28,7 +28,7 @@ And the second senator can't exercise any rights any more since his right has be
 And in the round 2, the first senator can just announce the victory since he is the only guy in the senate who can vote.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: "RDD"
 Output: "Dire"

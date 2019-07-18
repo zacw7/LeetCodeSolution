@@ -18,7 +18,7 @@ Also, there isn't a smaller size set that fulfills the above condition.
 Thus, we output the size of this set, which is 3.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: intervals = [[1, 2], [2, 3], [2, 4], [4, 5]]
 Output: 5

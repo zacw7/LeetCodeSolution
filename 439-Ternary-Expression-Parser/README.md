@@ -22,7 +22,7 @@ Output: "2"
 Explanation: If true, then result is 2; otherwise result is 3.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: "F?1:T?4:5"
 

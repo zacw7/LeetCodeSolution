@@ -12,7 +12,7 @@ Input: Y = 1992, M = 7
 Output: 31
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: Y = 2000, M = 2
 Output: 29

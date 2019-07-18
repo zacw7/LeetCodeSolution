@@ -23,7 +23,7 @@ Output: "makkek"
 Explanation: Based on the equivalency information in A and B, we can group their characters as [m,p], [a,o], [k,r,s], [e,i]. The characters in each group are equivalent and sorted in lexicographical order. So the answer is "makkek".
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: A = "hello", B = "world", S = "hold"
 Output: "hdld"

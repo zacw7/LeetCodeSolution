@@ -16,7 +16,7 @@ Explanation: By calling next repeatedly until hasNext returns false,
              the order of elements returned by next should be: [1,1,2,1,1].
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: [1,[4,[6]]]
 Output: [1,4,6]

@@ -27,7 +27,7 @@ X   Y   Z
 This works because ('X', 'Y', 'D'), ('Y', 'Z', 'E'), and ('D', 'E', 'A') are allowed triples.
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: bottom = "XXYX", allowed = ["XXX", "XXY", "XYX", "XYY", "YXZ"]
 Output: false

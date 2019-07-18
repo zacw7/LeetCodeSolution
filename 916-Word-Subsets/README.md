@@ -18,7 +18,7 @@ Input: A = ["amazon","apple","facebook","google","leetcode"], B = ["e","o"]
 Output: ["facebook","google","leetcode"]
 ```
 
-##### Example 2: 
+##### Example 2:
 ```
 Input: A = ["amazon","apple","facebook","google","leetcode"], B = ["l","e"]
 Output: ["apple","google","leetcode"]
