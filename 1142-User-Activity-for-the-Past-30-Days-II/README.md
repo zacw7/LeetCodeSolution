@@ -1,8 +1,8 @@
-# 1141. User Activity for the Past 30 Days I
+# 1142. User Activity for the Past 30 Days II
 
 **Easy**
 
-[Original Page](https://leetcode.com/problems/user-activity-for-the-past-30-days-i/)
+[Original Page](https://leetcode.com/problems/user-activity-for-the-past-30-days-ii/)
 
 SQL Schema >
 ```
@@ -37,7 +37,7 @@ The table shows the user activities for a social media website.
 Note that each session belongs to exactly one user.
 ```
 
-Write an SQL query to find the daily active user count for a period of 30 days ending __2019-07-27__ inclusively. A user was active on some day if he/she made at least one activity on that day.
+Write an SQL query to find the average number of sessions per user for a period of 30 days ending __2019-07-27__ inclusively, __rounded to 2 decimal places__. The sessions we want to count for a user are those with at least one activity in that time period.
 
 The query result format is in the following example:
 ```
@@ -54,16 +54,18 @@ Activity table:
 | 3       | 2          | 2019-07-21    | open_session  |
 | 3       | 2          | 2019-07-21    | send_message  |
 | 3       | 2          | 2019-07-21    | end_session   |
+| 3       | 5          | 2019-07-21    | open_session  |
+| 3       | 5          | 2019-07-21    | scroll_down   |
+| 3       | 5          | 2019-07-21    | end_session   |
 | 4       | 3          | 2019-06-25    | open_session  |
 | 4       | 3          | 2019-06-25    | end_session   |
 +---------+------------+---------------+---------------+
 
 Result table:
-+------------+--------------+ 
-| day        | active_users |
-+------------+--------------+ 
-| 2019-07-20 | 2            |
-| 2019-07-21 | 2            |
-+------------+--------------+ 
-Note that we do not care about days with zero active users.
++---------------------------+ 
+| average_sessions_per_user |
++---------------------------+ 
+| 1.33                      |
++---------------------------+ 
+User 1 and 2 each had 1 session in the past 30 days while user 3 had 2 sessions so the average is (1 + 1 + 2) / 3 = 1.33.
 ```
