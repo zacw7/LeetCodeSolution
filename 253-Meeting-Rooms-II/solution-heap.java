@@ -1,20 +1,15 @@
-/**
- * Definition for an interval.
- * public class Interval {
- *     int start;
- *     int end;
- *     Interval() { start = 0; end = 0; }
- *     Interval(int s, int e) { start = s; end = e; }
- * }
- */
 class Solution {
-    public int minMeetingRooms(Interval[] intervals) {
-        Arrays.sort(intervals, (o1, o2) -> o1.start - o2.start);
-        Queue<Integer> heap = new PriorityQueue();
-        for (Interval itv : intervals) {
-            if (!heap.isEmpty() && itv.start >= heap.peek()) heap.poll();
-            heap.add(itv.end);
+    public int minMeetingRooms(int[][] intervals) {
+        Arrays.sort(intervals, (a, b) -> a[0] - b[0]);
+        PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[1] - b[1]);
+        int max = 0;
+        for (int[] cur : intervals) {
+            while (!pq.isEmpty() && pq.peek()[1] <= cur[0]) {
+                pq.poll();
+            }
+            pq.offer(cur);
+            max = Math.max(max, pq.size());
         }
-        return heap.size();
+        return max;
     }
 }
