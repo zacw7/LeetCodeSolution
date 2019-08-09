@@ -1,41 +1,33 @@
 class Solution {
     public boolean canCross(int[] stones) {
-        if (stones == null || stones.length < 2 || stones[1] != 1) {
-            return false;
+        int[] delta = new int[]{-1, 0, 1};
+        Map<Integer, Integer> stoneToIndex = new HashMap();
+        for (int i = 0; i < stones.length; i++) {
+            stoneToIndex.put(stones[i], i);
         }
-
-        if (stones.length == 2 && stones[1] == 1) {
-            return true;
+        Set<Integer>[] options = new Set[stones.length];
+        for (int i = 0; i < options.length; i++) {
+            options[i] = new HashSet();
         }
-
-        Map<Integer, Set<Integer>> jumpMap = new HashMap();
-        Set<Integer> jumps = new HashSet();
-        jumps.add(1);
-        jumps.add(2);
-        jumpMap.put(1, jumps);
-        for (int i = 2; i < stones.length; i++) {
-            jumpMap.put(stones[i], new HashSet());
-        }
-
-        int target = stones[stones.length - 1];
-        for (int i = 1; i < stones.length; i++) {
-            int curr = stones[i];
-            Set<Integer> jumpOptions = jumpMap.get(curr);
-            for (int option : jumpOptions) {
-                if (curr + option == target) {
-                    return true;
-                }
-                if (jumpMap.containsKey(curr + option)) {
-                    Set<Integer> nextOptions = jumpMap.get(curr + option);
-                    nextOptions.add(option + 1);
-                    if (option > 0) nextOptions.add(option);
-                    if (option - 1 > 0) nextOptions.add(option - 1);
-                    jumpMap.put(curr + option, nextOptions);
+        options[0].add(1);
+        for (int i = 0; i < stones.length - 1; i++) {
+            if (options[i].isEmpty()) {
+                continue;
+            }
+            for (int k : options[i]) {
+                if (stoneToIndex.containsKey(stones[i] + k)) {
+                    int j = stoneToIndex.get(stones[i] + k);
+                    if (j == stones.length - 1) {
+                        return true;
+                    }
+                    for (int d : delta) {
+                        if (k + d > 0) {
+                            options[j].add(k + d);
+                        }
+                    }
                 }
             }
         }
-
         return false;
     }
-
 }
