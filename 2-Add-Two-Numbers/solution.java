@@ -8,26 +8,23 @@
  */
 class Solution {
     public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
-        ListNode dummy = new ListNode(0), node = dummy;
+        ListNode dummy = new ListNode(0);
+        ListNode cur = dummy;
         int carry = 0;
         while (l1 != null || l2 != null || carry > 0) {
-            int d = carry;
+            int digit = carry;
             if (l1 != null) {
-                d += l1.val;
+                digit += l1.val;
                 l1 = l1.next;
             }
             if (l2 != null) {
-                d += l2.val;
+                digit += l2.val;
                 l2 = l2.next;
             }
-            node.next = new ListNode(d % 10);
-            node = node.next;
-            carry = d / 10;
+            carry = digit / 10;
+            cur.next = new ListNode(digit % 10);
+            cur = cur.next;
         }
-        if (dummy.next == null) {
-            return dummy;
-        } else {
-            return dummy.next;
-        }
+        return dummy.next;
     }
 }
