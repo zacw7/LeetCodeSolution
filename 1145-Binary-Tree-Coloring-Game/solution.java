@@ -8,29 +8,37 @@
  * }
  */
 class Solution {
-    private int leftCount, rightCount;
     public boolean btreeGameWinningMove(TreeNode root, int n, int x) {
-        if (root == null || n == 0) {
-            return false;
-        }
-        leftCount = rightCount = 0;
-        countNodes(root, x);
-        if (root.val != x && (n - leftCount - rightCount - 1) > (leftCount + rightCount + 1)) {
-            return true;
-        }
-        return leftCount > (n - leftCount) || rightCount > (n - rightCount);
+        TreeNode target = findNode(root, x);
+        int left = countNodes(target.left);
+        int right = countNodes(target.right);
+        int parent = (root == target) ? 0 : n - left - right - 1;
+        return n < 2 * left || n < 2 * right || n < 2 * parent;
     }
 
-    private int countNodes(TreeNode node, int x) {
+    private TreeNode findNode(TreeNode node, int val) {
+        if (node == null) {
+            return null;
+        } else if (node.val == val) {
+            return node;
+        } else {
+            TreeNode left = findNode(node.left, val);
+            if (left != null) {
+                return left;
+            }
+            TreeNode right = findNode(node.right, val);
+            if (right != null) {
+                return right;
+            }
+        }
+        return null;
+    }
+
+    private int countNodes(TreeNode node) {
         if (node == null) {
             return 0;
+        } else {
+            return 1 + countNodes(node.left) + countNodes(node.right);
         }
-        int left = countNodes(node.left, x);
-        int right = countNodes(node.right, x);
-        if (node.val == x) {
-            leftCount = left;
-            rightCount = right;
-        }
-        return left + right + 1;
     }
 }
