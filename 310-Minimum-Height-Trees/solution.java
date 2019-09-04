@@ -1,38 +1,46 @@
 class Solution {
     public List<Integer> findMinHeightTrees(int n, int[][] edges) {
-        Set<Integer> res = new HashSet();
-        int[] degrees = new int[n];
+        int[] degree = new int[n];
         List<Integer>[] adjList = new List[n];
-        for (int[] e : edges) {
-            degrees[e[0]]++;
-            degrees[e[1]]++;
-            if (adjList[e[0]] == null) {
-                adjList[e[0]] = new ArrayList();
-            }
-            if (adjList[e[1]] == null) {
-                adjList[e[1]] = new ArrayList();
-            }
+        for (int i = 0; i < n; i++) {
+            adjList[i] = new ArrayList();
+        }
+        for (int[] e : edges){
+            degree[e[0]]++;
+            degree[e[1]]++;
             adjList[e[0]].add(e[1]);
             adjList[e[1]].add(e[0]);
         }
+        List<Integer> res = new ArrayList();
+        int left = n;
+        Queue<Integer> queue = new LinkedList();
         for (int i = 0; i < n; i++) {
-            res.add(i);
+            if (degree[i] == 1) {
+                degree[i]--;
+                queue.offer(i);
+            }
         }
-        while (res.size() > 2) {
-            List<Integer> tmp = new ArrayList();
+        if (queue.isEmpty()) {
             for (int i = 0; i < n; i++) {
-                if (degrees[i] == 1) {
-                    tmp.add(i);
-                }
+                res.add(i);
             }
-            for (int node : tmp) {
-                degrees[node]--;
-                for (int neighbor : adjList[node]) {
-                    degrees[neighbor]--;
-                }
-            }
-            res.removeAll(tmp);
         }
-        return new ArrayList(res);
+        while (left > 2 && !queue.isEmpty()) {
+            int s = queue.size();
+            while (s-- > 0) {
+                int cur = queue.poll();
+                for (int neigh : adjList[cur]) {
+                    degree[neigh]--;
+                    if (degree[neigh] == 1) {
+                        queue.offer(neigh);
+                    }
+                }
+                left--;
+            }
+        }
+        while (!queue.isEmpty()) {
+            res.add(queue.poll());
+        }
+        return res;
     }
 }
