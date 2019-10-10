@@ -9,17 +9,13 @@
  */
 class Solution {
     public TreeNode upsideDownBinaryTree(TreeNode root) {
-        if (root == null) return null;
-        else return reverse(root, root.left, root.right);
-    }
-
-    private TreeNode reverse(TreeNode node, TreeNode left, TreeNode right) {
-        if (left == null) return node;
-        node.left = node.right = null;
-        TreeNode root = reverse(left, left.left, left.right);
-        if (right != null) reverse(right, right.left, right.right);
-        left.right = node;
-        left.left = right;
-        return root;
+        if (root == null || root.left == null) {
+            return root;
+        }
+        TreeNode node = upsideDownBinaryTree(root.left);
+        root.left.left = root.right;
+        root.left.right = root;
+        root.left = root.right = null;
+        return node;
     }
 }
