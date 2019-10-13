@@ -7,23 +7,39 @@
  * }
  */
 class Solution {
+    // two points
+    // Time: O(n)
+    // Space: O(1)
     public void reorderList(ListNode head) {
-        Stack<ListNode> stack = new Stack();
-        ListNode node = head;
-        while (node != null) {
-            stack.push(node);
-            node = node.next;
+        if (head == null || head.next == null) {
+            return;
         }
-        node = head;
-        while (node != null) {
-            ListNode tail = stack.pop();
-            if (tail == node || tail == node.next) {
-                tail.next = null;
-                break;
+        ListNode slow = head, fast = head.next;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+        }
+        ListNode l1 = head, l2 = slow.next;
+        slow.next = null;
+        // reverse l2
+        ListNode prev = null, cur = l2;
+        while (cur != null) {
+            ListNode next = cur.next;
+            cur.next = prev;
+            prev = cur;
+            cur = next;
+        }
+        l2 = prev;
+        //  weave
+        while (l1 != null) {
+            ListNode n1 = l1.next;
+            l1.next = l2;
+            l1 = n1;
+            if (l2 != null) {
+                ListNode n2 = l2.next;
+                l2.next = n1;
+                l2 = n2;
             }
-            tail.next = node.next;
-            node.next = tail;
-            node = tail.next;
         }
     }
 }

@@ -1,10 +1,19 @@
 class Solution {
+    // Heap
+    // Time: O(nlogk)
+    // Space: O(k)
     public int[][] kClosest(int[][] points, int K) {
-        Queue<int[]> queue
-                = new PriorityQueue<int[]>((o1, o2) -> Math.abs(o1[0] * o1[0] + o1[1] * o1[1]) - Math.abs(o2[0] * o2[0] + o2[1] * o2[1]));
-        for (int[] p : points) queue.add(p);
         int[][] ans = new int[K][2];
-        for (int i = 0; i < K; i++) ans[i] = queue.poll();
+        PriorityQueue<int[]> pq = new PriorityQueue<int[]>((a, b) -> (b[0] * b[0] + b[1] * b[1]) - (a[0] * a[0] + a[1] * a[1]));
+        for (int[] p : points) {
+            pq.offer(p);
+            if (pq.size() > K) {
+                pq.poll();
+            }
+        }
+        for (int i = 0; i < K; i++) {
+            ans[i] = pq.poll();
+        }
         return ans;
     }
 }

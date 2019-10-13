@@ -13,21 +13,24 @@ class Node {
 };
 */
 class Solution {
+    // dfs
     public Node cloneGraph(Node node) {
-        if (node == null) return null;
-        Map<Node, Node> map = new HashMap();
-        return clone(node, map);
+        if (node == null) {
+            return null;
+        }
+        Map<Node, Node> nodeMap = new HashMap();
+        return cloneNode(node, nodeMap);
     }
 
-    private Node clone(Node oNode, Map<Node, Node> map) {
-        Node nNode = new Node();
-        nNode.val = oNode.val;
-        nNode.neighbors = new ArrayList();
-        map.put(oNode, nNode);
-        for (Node neighbor : oNode.neighbors) {
-            if (map.containsKey(neighbor)) nNode.neighbors.add(map.get(neighbor));
-            else nNode.neighbors.add(clone(neighbor, map));
+    private Node cloneNode(Node node, Map<Node, Node> nodeMap) {
+        if (nodeMap.containsKey(node)) {
+            return nodeMap.get(node);
         }
-        return nNode;
+        Node newNode = new Node(node.val, new ArrayList());
+        nodeMap.put(node, newNode);
+        for (Node neigh : node.neighbors) {
+            newNode.neighbors.add(cloneNode(neigh, nodeMap));
+        }
+        return newNode;
     }
 }
