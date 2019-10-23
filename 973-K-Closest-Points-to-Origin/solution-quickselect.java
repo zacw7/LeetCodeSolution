@@ -21,24 +21,22 @@ class Solution {
         if (start >= end) {
             return;
         }
-        int pivot = end;
-        int pivotDist = dist(points[pivot]);
+        int p = end;
+        int pivot = dist(points[p]);
         int i = start, j = start;
-        while (j < pivot) {
-            int curDist = dist(points[j]);
-            if (curDist < pivotDist) {
+        while (j < p) {
+            if (dist(points[j]) < pivot) {
                 swap(points, i, j);
                 i++;
             }
             j++;
         }
-        swap(points, i, pivot);
-        if (i - start + 1 > K) {
+        swap(points, i, p);
+        int len = i - start + 1;
+        if (len < K) {
+            partition(points, i + 1, end, K - len);
+        } else if (len > K) {
             partition(points, start, i - 1, K);
-        } else if (i - start + 1 < K) {
-            partition(points, i + 1, end, K - (i - start + 1));
-        } else {
-            return;
         }
     }
 

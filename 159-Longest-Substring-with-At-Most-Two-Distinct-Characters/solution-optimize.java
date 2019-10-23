@@ -1,29 +1,23 @@
 class Solution {
     public int lengthOfLongestSubstringTwoDistinct(String s) {
-        if (s == null || s.length() == 0) {
-            return 0;
-        }
-        int count = 0;
-        int[] charCount = new int[256];
+        int[] count = new int[256];
+        int l = 0, r = 0;
         int maxLen = 0;
-        int left = 0, right = 0;
-        while (right <= s.length()) {
-            if (count <= 2) {
-                maxLen = Math.max(maxLen, right - left);
-                if (right < s.length()) {
-                    if (charCount[s.charAt(right)] == 0) {
-                        count++;
-                    }
-                    charCount[s.charAt(right)]++;
-                }
-                right++;
-            } else {
-                charCount[s.charAt(left)]--;
-                if (charCount[s.charAt(left)] == 0) {
-                    count--;
-                }
-                left++;
+        int distinct = 0;
+        while (r < s.length()) {
+            count[s.charAt(r)]++;
+            if (count[s.charAt(r)] == 1) {
+                distinct++;
             }
+            r++;
+            while (distinct > 2) {
+                count[s.charAt(l)]--;
+                if (count[s.charAt(l)] == 0) {
+                    distinct--;
+                }
+                l++;
+            }
+            maxLen = Math.max(maxLen, r - l);
         }
         return maxLen;
     }

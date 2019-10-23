@@ -1,25 +1,29 @@
 class Solution {
     public int compress(char[] chars) {
-        int i = 0;
-        int left = 0, right = 0;
-        while (right <= chars.length) {
-            if (right == chars.length || chars[left] != chars[right]) {
-                chars[i++] = chars[left];
-                int count = right - left;
+        if (chars == null || chars.length == 0) {
+            return 0;
+        }
+        char ch = chars[0];
+        int count = 1;
+        int idx = 1;
+        for (int i = 1; i < chars.length; i++) {
+            if (chars[i] == chars[i - 1]) {
+                count++;
+            } else {
                 if (count > 1) {
-                    Stack<Integer> stack = new Stack();
-                    while (count > 0) {
-                        stack.push(count % 10);
-                        count /= 10;
-                    }
-                    while (!stack.isEmpty()) {
-                        chars[i++] = (char) (stack.pop() + '0');
+                    for (char c : String.valueOf(count).toCharArray()) {
+                        chars[idx++] = c;
                     }
                 }
-                left = right;
+                chars[idx++] = chars[i];
+                count = 1;
             }
-            right++;
         }
-        return i;
+        if (count > 1) {
+            for (char c : String.valueOf(count).toCharArray()) {
+                chars[idx++] = c;
+            }
+        }
+        return idx;
     }
 }

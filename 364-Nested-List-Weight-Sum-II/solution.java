@@ -28,29 +28,31 @@
  */
 class Solution {
     public int depthSumInverse(List<NestedInteger> nestedList) {
-        if (nestedList == null || nestedList.isEmpty()) return 0;
-        int depth = maxDepth(nestedList);
-        int[] ans = new int[depth];
-        dfs(nestedList, depth, ans);
+        int depth = getDepth(nestedList);
+        return depthSumInverse(nestedList, depth);
+    }
+
+    private int depthSumInverse(List<NestedInteger> nestedList, int depth) {
         int sum = 0;
-        for (int n : ans) sum += n;
+        for (NestedInteger ni : nestedList) {
+            if (ni.isInteger()) {
+                sum += depth * ni.getInteger();
+            } else {
+                sum += depthSumInverse(ni.getList(), depth - 1);
+            }
+        }
         return sum;
     }
 
-    private int maxDepth(List<NestedInteger> nestedList) {
-        if (nestedList == null || nestedList.isEmpty()) return 0;
-        int depth = 0;
+    private int getDepth(List<NestedInteger> nestedList) {
+        int maxDepth = 0;
         for (NestedInteger ni : nestedList) {
-            if (!ni.isInteger()) depth = Math.max(depth, maxDepth(ni.getList()));
+            if (ni.isInteger()) {
+                maxDepth = Math.max(maxDepth, 1);
+            } else {
+                maxDepth = Math.max(maxDepth, 1 + getDepth(ni.getList()));
+            }
         }
-        return depth + 1;
-    }
-
-    private void dfs(List<NestedInteger> nestedList, int depth, int[] ans) {
-        if (depth == 0) return;
-        for (NestedInteger ni : nestedList) {
-            if (ni.isInteger()) ans[depth - 1] += ni.getInteger() * depth;
-            else dfs(ni.getList(), depth - 1, ans);
-        }
+        return maxDepth;
     }
 }

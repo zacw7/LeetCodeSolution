@@ -1,26 +1,31 @@
 class Solution {
     public boolean checkInclusion(String s1, String s2) {
-        if (s1.length() > s2.length()) return false;
-
-        int[] source = new int[26];
+        if (s1.length() > s2.length()) {
+            return false;
+        }
+        int N = s1.length();
         int[] target = new int[26];
-        int size = s1.length();
-
-        for (char ch : s1.toCharArray()) target[ch - 'a']++;
-        for (int i = 0; i < size; i++) source[s2.charAt(i) - 'a']++;
-
-        if (isValid(source, target)) return true;
-        for (int i = 1; i + size - 1 < s2.length(); i++) {
-            source[s2.charAt(i - 1) - 'a']--;
-            source[s2.charAt(i + size - 1) - 'a']++;
-            if(isValid(source, target)) return true;
+        int[] count = new int[26];
+        for (int i = 0; i < N; i++) {
+            target[s1.charAt(i) - 'a']++;
+            count[s2.charAt(i) - 'a']++;
+        }
+        if (isValid(count, target)) {
+            return true;
+        }
+        for (int i = N; i < s2.length(); i++) {
+            count[s2.charAt(i) - 'a']++;
+            count[s2.charAt(i - N) - 'a']--;
+            if (isValid(count, target)) {
+                return true;
+            }
         }
         return false;
     }
 
-    private boolean isValid(int[] source, int[] target) {
+    private boolean isValid(int[] count, int[] target) {
         for (int i = 0; i < 26; i++) {
-            if (source[i] < target[i]) {
+            if (count[i] != target[i]) {
                 return false;
             }
         }

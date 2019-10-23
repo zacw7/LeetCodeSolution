@@ -1,17 +1,21 @@
 class Solution {
     public String addStrings(String num1, String num2) {
-        int idx1 = num1.length() - 1, idx2 = num2.length() - 1;
-        int carryBit = 0;
-        int offset = '0' - 0;
         StringBuilder sb = new StringBuilder();
-        while (idx1 >= 0 || idx2 >= 0) {
-            int num = carryBit;
-            if (idx1 >= 0) num += num1.charAt(idx1--) - offset;
-            if (idx2 >= 0) num += num2.charAt(idx2--) - offset;
-            sb.append((char)(num % 10 + offset));
-            carryBit = num / 10;
+        int i = num1.length() - 1, j = num2.length() - 1;
+        int carry = 0;
+        while (i >= 0 || j >= 0 || carry > 0) {
+            int cur = carry;
+            if (i >= 0) {
+                cur += num1.charAt(i) - '0';
+                i--;
+            }
+            if (j >= 0) {
+                cur += num2.charAt(j) - '0';
+                j--;
+            }
+            sb.insert(0, (char) (cur % 10 + '0'));
+            carry = cur / 10;
         }
-        if (carryBit == 1) sb.append('1');
-        return sb.reverse().toString();
+        return sb.toString();
     }
 }
