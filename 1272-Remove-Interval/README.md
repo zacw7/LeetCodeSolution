@@ -21,6 +21,7 @@ Output: [[0,1],[6,7]]
 Input: intervals = [[0,5]], toBeRemoved = [2,3]
 Output: [[0,2],[3,5]]
 ```
+
 ##### Constraints:
 - `1 <= intervals.length <= 10^4`
 - `-10^9 <= intervals[i][0] < intervals[i][1] <= 10^9`
